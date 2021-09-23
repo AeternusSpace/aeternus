@@ -1,5 +1,8 @@
 import '@wonderlandengine/components';
 import './controller';
-import './peer-component';
-import './network-buttons';
 import './wallet';
+import './networking/peer-component';
+import './networking/network-buttons';
+import './speech/speech';
+import './speech/speech-target';
+import './speech/cube-test';

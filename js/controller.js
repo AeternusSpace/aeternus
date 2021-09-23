@@ -1,8 +1,6 @@
 import * as glMatrix from 'gl-matrix';
 
-WL.registerComponent(
-	'controller',
-	{
+WL.registerComponent('controller', {
 		handedness: {
 			type: WL.Type.Enum,
 			values: ['left', 'right'],
@@ -29,8 +27,7 @@ WL.registerComponent(
 			default: 'snap',
 		},
 		snapDegrees: { type: WL.Type.Int, default: 45 },
-	},
-	{
+	}, {
 		init: function () {
 			//Rotation
 			this.justSnapped = false;
@@ -76,9 +73,9 @@ WL.registerComponent(
 
 					//Handle button presses
 					if (gripped) {
-						this.grabControls.grab();
+						//this.grabControls.grab();
 					} else {
-						this.grabControls.drop();
+						//this.grabControls.drop();
 					}
 				}
 			}

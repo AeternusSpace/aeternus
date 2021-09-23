@@ -75,6 +75,18 @@
                         "mesh": "8",
                         "material": "22"
                     }
+                },
+                {
+                    "type": "speech-target",
+                    "speech-target": {
+                        "name": "cube",
+                        "functions": "spin,stop",
+                        "targetScript": "cube-test",
+                        "speechObject": "226"
+                    }
+                },
+                {
+                    "type": "cube-test"
                 }
             ],
             "transformation": [
@@ -90,9 +102,9 @@
                 0.0,
                 0.5,
                 0.0,
-                2.9802322387695329e-8,
+                2.9802322387695315e-8,
                 0.4999999,
-                5.960464477539065e-8,
+                7.450580596923828e-8,
                 1.0
             ]
         },
@@ -2170,6 +2182,74 @@
                 0.108458,
                 0.0000047,
                 1.0
+            ]
+        },
+        "224": {
+            "name": "TranscriptDisplay",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "202"
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -2.039355,
+                1.778151,
+                -2.1627902,
+                1.0
+            ]
+        },
+        "225": {
+            "name": "Text",
+            "parent": "224",
+            "components": [
+                {
+                    "type": "text"
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0049999,
+                1.0
+            ]
+        },
+        "226": {
+            "name": "Speech",
+            "components": [
+                {
+                    "type": "speech",
+                    "speech": {
+                        "transcriptDisplay": "225"
+                    }
+                }
             ]
         }
     },

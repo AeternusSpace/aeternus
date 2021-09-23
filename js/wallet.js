@@ -15,11 +15,11 @@ WL.registerComponent('wallet', {
     
 }, {
   init: function() {
-    console.log(window);
+    // Blank
   },
   start: function() {
     //this.connectTezosWallet(); 
-    this.connectEthereumWallet();
+    //this.connectEthereumWallet();
   },
   update: function(dt) {
 
