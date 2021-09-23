@@ -1,6 +1,7 @@
 import * as glMatrix from 'gl-matrix';
 
 WL.registerComponent('controller', {
+		inputManager: {type: WL.Type.Object},
 		handedness: {type: WL.Type.Enum, values: ['left', 'right'], default: 'left'},
 		controlType: {type: WL.Type.Enum, values: ['move', 'rotate'], default: 'move'},
 		controlSource: {type: WL.Type.Enum, values: ['thumbstick', 'touchpad'], default: 'thumbstick'},
@@ -20,38 +21,26 @@ WL.registerComponent('controller', {
 			// Movement limits for now
 			this.min = -4;
 			this.max = 4;
+
 		},
 		start: function () {
 			// Blank
+			this.input = this.inputManager.getComponent('input-manager');
 		},
 		update: function (dt) {
-			let s = WL.xrSession;
-			if (!s) return;
+			const hand = ['left', 'right'][this.handedness];
+			const gamepad = this.input[hand].gamepad;
 
-			// Handle input
-			for (let i = 0; i < s.inputSources.length; ++i) {
-				const input = s.inputSources[i];
-				if (input.handedness == ['left', 'right'][this.handedness]) {
-					const gamepad = input.gamepad;
-					if (!gamepad) continue;
+			// Gather input from controller
+			const xAxis = gamepad.getAxesInfo().axes[0];
+			const yAxis = -gamepad.getAxesInfo().axes[1];
 
-					// Gather input from controller
-					const xAxis = this.controlSource == 'thumbstick'
-						? gamepad.axes[0]
-						: gamepad.axes[2];
-					const yAxis = this.controlSource == 'thumbstick'
-						? gamepad.axes[1]
-						: gamepad.axes[3];
-
-					// Handle movement and rotation
-					if (this.controlType == 0) {
-						this.move(xAxis, yAxis, dt);
-					} else if (this.controlType == 1) this.rotate(xAxis, dt);
-
-					// Handle button presses
-					
-				}
-			}
+			// Handle movement and rotation
+			if (this.controlType == 0) {
+				this.move(xAxis, yAxis, dt);
+			} else if (this.controlType == 1) this.rotate(xAxis, dt);
+			
+			// Handle button presses
 		},
 		move: function (xAxis, yAxis, dt) {
 			let direction = [xAxis, 0, yAxis];

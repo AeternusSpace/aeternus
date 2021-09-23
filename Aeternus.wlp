@@ -19,6 +19,11 @@
                 0.0,
                 1.1575536,
                 1.0
+            ],
+            "components": [
+                {
+                    "type": "input-manager"
+                }
             ]
         },
         "15": {
@@ -963,7 +968,8 @@
                         "controlSource": "thumbstick",
                         "player": "14",
                         "head": "18",
-                        "head2": "19"
+                        "head2": "19",
+                        "inputManager": "14"
                     }
                 }
             ]
@@ -1013,7 +1019,8 @@
                     "controller": {
                         "player": "14",
                         "head": "18",
-                        "head2": "19"
+                        "head2": "19",
+                        "inputManager": "14"
                     }
                 }
             ],

@@ -1,8 +1,10 @@
 import '@wonderlandengine/components';
-import './controller';
-import './wallet';
+import './input/gamepad';
+import './input/input-manager';
+import './input/controller';
 import './networking/peer-component';
 import './networking/network-buttons';
 import './speech/speech';
 import './speech/speech-target';
 import './speech/cube-test';
+import './wallet';
