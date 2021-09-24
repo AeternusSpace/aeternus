@@ -23,6 +23,13 @@
             "components": [
                 {
                     "type": "input-manager"
+                },
+                {
+                    "type": "wasd-controls2",
+                    "wasd-controls2": {
+                        "restrictY": true,
+                        "headObject": "17"
+                    }
                 }
             ]
         },
@@ -836,18 +843,6 @@
                     "type": "input",
                     "input": {
                         "type": "ray left"
-                    }
-                },
-                {
-                    "type": "teleport",
-                    "teleport": {
-                        "floorGroup": 2,
-                        "camRoot": "14",
-                        "cam": "17",
-                        "teleportIndicatorMeshObject": "208",
-                        "indicatorYOffset": 0.0099999,
-                        "eyeLeft": "18",
-                        "eyeRight": "19"
                     }
                 }
             ],
@@ -1891,7 +1886,8 @@
                         "indicatorYOffset": 0.0099999,
                         "eyeLeft": "18",
                         "eyeRight": "19"
-                    }
+                    },
+                    "active": true
                 }
             ],
             "transformation": [

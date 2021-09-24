@@ -2,6 +2,7 @@ import '@wonderlandengine/components';
 import './input/gamepad';
 import './input/input-manager';
 import './input/controller';
+import './input/wasd-controls2';
 import './networking/peer-component';
 import './networking/network-buttons';
 import './speech/speech';
