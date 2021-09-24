@@ -14,7 +14,7 @@ WL.registerComponent('speech', {
         this.speaking = false;
         
         const SpeechRecognition = window.webkitSpeechRecognition || createSpeechlySpeechRecognition('fc89d3ca-07f8-49fd-ac76-e732256f427e');
-        const speechRecognition = new SpeechRecognition();
+        this.speechRecognition = new SpeechRecognition();
         if (SpeechRecognition == window.webkitSpeechRecognition) {
             console.log("This browser supports SpeechRecognition.");
             const grammar = `
@@ -24,35 +24,27 @@ WL.registerComponent('speech', {
             `;
             const speechRecognitionList = new webkitSpeechGrammarList();
             speechRecognitionList.addFromString(grammar, 1);
-            speechRecognition.grammars = speechRecognitionList;
-            speechRecognition.lang = 'en-US';
-            speechRecognition.maxAlternatives = 1;            
+            this.speechRecognition.grammars = speechRecognitionList;
+            this.speechRecognition.lang = 'en-US';
+            this.speechRecognition.maxAlternatives = 1;            
         }
         else {
             console.log("This browser does not natively support SpeechRecognition. Speechly polyfill will be used.");
         }
-        speechRecognition.continuous = this.continuous;
-        speechRecognition.interimResults = this.interimResults;
+        this.speechRecognition.continuous = this.continuous;
+        this.speechRecognition.interimResults = this.interimResults;
 
         document.addEventListener('keydown', e => {
             if (e.code === 'Space') {
-                if (!this.speaking) {
-                    console.log('started speaking');
-                    this.speaking = true;
-                    speechRecognition.start();
-                }
+                this.startSpeechRecognition();
             }              
         });
         document.addEventListener('keyup', e => {
-            if (e.code === 'Space') {
-                if (this.speaking) {
-                    console.log('finished speaking');
-                    this.speaking = false;
-                    speechRecognition.stop();
-                }
+            if (e.code === 'Space') {                    
+                this.stopSpeechRecognition();
             }   
         });
-        speechRecognition.onresult = e => {
+        this.speechRecognition.onresult = e => {
             const transcript = e.results[0][0].transcript;
             console.log(transcript);
             this.transcriptDisplayText.text = transcript;
@@ -62,8 +54,19 @@ WL.registerComponent('speech', {
     start: function() {
         this.transcriptDisplayText = this.transcriptDisplay.getComponent('text');
     },
-    update: function(dt) {
-        // Blank
+    startSpeechRecognition: function() {
+        if (!this.speaking) {
+            console.log('started speaking');
+            this.speaking = true;
+            this.speechRecognition.start();
+        }
+    },
+    stopSpeechRecognition: function() {
+        if (this.speaking) {
+            console.log('finished speaking');
+            this.speaking = false;
+            this.speechRecognition.stop();
+        }
     },
     parse: function(transcript) {
         const tokens = transcript.toLowerCase().split(' ');

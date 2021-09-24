@@ -30,6 +30,16 @@
                         "restrictY": true,
                         "headObject": "17"
                     }
+                },
+                {
+                    "type": "canvas-ui-input-guard",
+                    "canvas-ui-input-guard": {
+                        "keyboardComponentName": "wasd-controls2",
+                        "keyboardObject": "14",
+                        "pointerObject": "17",
+                        "cursorObject": "17",
+                        "pointerComponentName": "mouse-look"
+                    }
                 }
             ]
         },
@@ -114,7 +124,7 @@
                 0.0,
                 0.5,
                 0.0,
-                2.9802322387695315e-8,
+                2.9802322387695329e-8,
                 0.4999999,
                 7.450580596923828e-8,
                 1.0
@@ -133,7 +143,7 @@
                 {
                     "type": "cursor",
                     "cursor": {
-                        "collisionGroup": 0,
+                        "collisionGroup": 1,
                         "handedness": "none"
                     }
                 }
@@ -312,7 +322,8 @@
                 1.0,
                 -1.4901161193847657e-8,
                 1.0
-            ]
+            ],
+            "deleted": true
         },
         "27": {
             "name": "Sphere",
@@ -342,7 +353,8 @@
                 0.75,
                 -1.25,
                 1.0
-            ]
+            ],
+            "deleted": true
         },
         "53": {
             "link": {
@@ -964,7 +976,8 @@
                         "player": "14",
                         "head": "18",
                         "head2": "19",
-                        "inputManager": "14"
+                        "inputManager": "14",
+                        "speechObject": "226"
                     }
                 }
             ]
@@ -1015,7 +1028,8 @@
                         "player": "14",
                         "head": "18",
                         "head2": "19",
-                        "inputManager": "14"
+                        "inputManager": "14",
+                        "speechObject": "226"
                     }
                 }
             ],
@@ -2254,6 +2268,81 @@
                     }
                 }
             ]
+        },
+        "227": {
+            "name": "UI Root",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0170884,
+                1.8406136,
+                -1.7981611,
+                1.0
+            ],
+            "deleted": true
+        },
+        "229": {
+            "name": "Keyboard",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.4018329,
+                2.5337438,
+                -1.974158,
+                1.0
+            ],
+            "deleted": true
+        },
+        "231": {
+            "name": "Environment",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "233"
+                    }
+                }
+            ],
+            "transformation": [
+                10.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                10.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                10.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "deleted": true
         }
     },
     "meshes": {
@@ -2424,6 +2513,12 @@
                 "name": "texture_1",
                 "file": "models\\oculus-touch-v2-right.glb"
             }
+        },
+        "235": {
+            "link": {
+                "name": "stars.jpg",
+                "file": "res\\stars.jpg"
+            }
         }
     },
     "images": {
@@ -2472,6 +2567,12 @@
                 256,
                 256
             ]
+        },
+        "234": {
+            "link": {
+                "name": "stars.jpg",
+                "file": "res\\stars.jpg"
+            }
         }
     },
     "materials": {
@@ -2708,6 +2809,24 @@
                     1.0
                 ]
             }
+        },
+        "228": {
+            "name": "Test UI",
+            "pipeline": "38"
+        },
+        "230": {
+            "name": "Virtual Keyboard",
+            "pipeline": "38"
+        },
+        "233": {
+            "name": "stars",
+            "pipeline": "35",
+            "Phong": {
+                "diffuseTexture": "235"
+            },
+            "Flat": {
+                "flatTexture": "235"
+            }
         }
     },
     "shaders": {
@@ -2819,7 +2938,14 @@
             "serverCOEP": "unsafe-none"
         },
         "rendering": {
-            "font": "fonts/AtkinsonHyperlegible-Regular.ttf"
+            "font": "fonts/AtkinsonHyperlegible-Regular.ttf",
+            "useMipMaps": false,
+            "clearColor": [
+                0.090196,
+                0.0901951,
+                0.0901951,
+                1.0
+            ]
         }
     },
     "animations": {},
@@ -2895,6 +3021,7 @@
         "models/hand-left.glb",
         "models/hand-right.glb",
         "models/button.glb",
-        "models/teleport-indicator.glb"
+        "models/teleport-indicator.glb",
+        "res/stars.jpg"
     ]
 }

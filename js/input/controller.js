@@ -1,7 +1,8 @@
-import * as glMatrix from 'gl-matrix';
+import { vec3, quat2 } from 'gl-matrix';
 
 WL.registerComponent('controller', {
 		inputManager: {type: WL.Type.Object},
+		speechObject: {type: WL.Type.Object},
 		handedness: {type: WL.Type.Enum, values: ['left', 'right'], default: 'left'},
 		controlType: {type: WL.Type.Enum, values: ['move', 'rotate'], default: 'move'},
 		controlSource: {type: WL.Type.Enum, values: ['thumbstick', 'touchpad'], default: 'thumbstick'},
@@ -26,6 +27,7 @@ WL.registerComponent('controller', {
 		start: function () {
 			// Blank
 			this.input = this.inputManager.getComponent('input-manager');
+			this.speech = this.speechObject.getComponent('speech');
 		},
 		update: function (dt) {
 			const hand = ['left', 'right'][this.handedness];
@@ -41,13 +43,20 @@ WL.registerComponent('controller', {
 			} else if (this.controlType == 1) this.rotate(xAxis, dt);
 			
 			// Handle button presses
+			const trigger = gamepad.getButtonInfo(0);
+			const grip = gamepad.getButtonInfo(1);
+			const bottom = gamepad.getButtonInfo(4); // A or X button
+			const top = gamepad.getButtonInfo(5);
+
+			if (bottom.isPressStart()) this.speech.startSpeechRecognition();
+			if (bottom.isPressEnd()) this.speech.stopSpeechRecognition();
 		},
 		move: function (xAxis, yAxis, dt) {
 			let direction = [xAxis, 0, yAxis];
 
-			glMatrix.vec3.normalize(direction, direction);
-			glMatrix.vec3.scale(direction, direction, dt);
-			glMatrix.vec3.transformQuat(direction, direction, this.head.transformWorld);
+			vec3.normalize(direction, direction);
+			vec3.scale(direction, direction, dt);
+			vec3.transformQuat(direction, direction, this.head.transformWorld);
 			if (!this.allowFly) direction[1] = 0;
 			this.player.translate(direction);
 
@@ -69,7 +78,7 @@ WL.registerComponent('controller', {
 					this.head.getTranslationWorld(currentHeadPos);
 
 					let newPos = [0, 0, 0];
-					glMatrix.vec3.sub(newPos, lastHeadPos, currentHeadPos);
+					vec3.sub(newPos, lastHeadPos, currentHeadPos);
 
 					this.player.translate(newPos);
 				} else if (Math.abs(xAxis) < 0.8) {
@@ -88,7 +97,7 @@ WL.registerComponent('controller', {
         this.head.getTranslationWorld(currentHeadPos);
 
         let newPos = [0, 0, 0];
-        glMatrix.vec3.sub(newPos, lastHeadPos, currentHeadPos);
+        vec3.sub(newPos, lastHeadPos, currentHeadPos);
 
         this.player.translate(newPos);
 			}
@@ -99,8 +108,8 @@ WL.registerComponent('controller', {
 			let right = [0, 0, 0];
 			this.head2.getTranslationWorld(right);
 			let center = [0, 0, 0];
-			glMatrix.vec3.add(center, left, right);
-			glMatrix.vec3.scale(center, center, 0.5);
+			vec3.add(center, left, right);
+			vec3.scale(center, center, 0.5);
 			return center;
 		},
 		clamp: function (input, min, max) {
@@ -108,11 +117,11 @@ WL.registerComponent('controller', {
 		},
 		grab: function () {
 			if (this.currentInteractable.parent) {
-				const invParent = glMatrix.quat2.create();
-				glMatrix.quat2.invert(invParent, this.currentInteractable.parent.transformWorld);
+				const invParent = quat2.create();
+				quat2.invert(invParent, this.currentInteractable.parent.transformWorld);
 
 				// Apply inverted parent to this objects world transform
-				glMatrix.quat2.multiply(this.currentInteractable.transformLocal, invParent, this.object.transformWorld);
+				quat2.multiply(this.currentInteractable.transformLocal, invParent, this.object.transformWorld);
 			} else {
 				this.currentInteractable.transformLocal.set(this.object.transformWorld);
 			}

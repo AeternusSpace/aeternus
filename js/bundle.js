@@ -8,4 +8,5 @@ import './networking/network-buttons';
 import './speech/speech';
 import './speech/speech-target';
 import './speech/cube-test';
+import './ui/test-ui-component';
 import './wallet';
