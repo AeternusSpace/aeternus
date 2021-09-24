@@ -62,17 +62,36 @@
       position: fixed;
       top: 50%;
       left: 50%;
+      padding: 3em;
       transform: translate(-50%, -50%);
-      background-color: gray;
+      background-color: rgba(23, 23, 23, .8);
       font-size: 2em;
+      border-radius: 20px;
+    }
+
+    #close-modal {
+      cursor: pointer;
+      position: fixed;
+      top: 2%;
+      right: 4%;
     }
 
     #ethereum-button {
       cursor: pointer;
+      border: 5px solid white;
+      border-radius: 5px;
+      background-color: rgb(68, 68, 68);
+      padding: 5px;
+      text-align: center;
     }
 
     #tezos-button {
       cursor: pointer;
+      border: 5px solid white;
+      border-radius: 5px;
+      background-color: rgb(68, 68, 68);
+      padding: 5px;
+      text-align: center;
     }
     </style>
     <script>
@@ -158,13 +177,18 @@
     </div>
 
     <div id="wallet-modal" style="visibility: hidden;">
-      <div id="ethereum-button">
-        <p>Ethereum</p>
+      <div id="close-modal">
+        X
       </div>
+      <div id="ethereum-button">
+        <img src="ethereum.svg" width="32" height="32">Ethereum
+      </div>
+      <p id="ethereum-address">No wallet connected.</p>
       <br />
       <div id="tezos-button">
-        <p>Tezos</p>
+        <img src="tezos.svg" width="32" height="32">Tezos
       </div>
+      <p id="tezos-address">No wallet connected.</p>
     </div>
     
     <div class="xr-button-container">
