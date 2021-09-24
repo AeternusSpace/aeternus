@@ -15,14 +15,28 @@ WL.registerComponent('wallet', {
     
 }, {
   init: function() {
-    // Blank
+    const walletButton = document.getElementById('wallet-button');
+    const walletModal = document.getElementById('wallet-modal');
+    const ethereumButton = document.getElementById('ethereum-button');
+    const tezosButton = document.getElementById('tezos-button');
+
+    walletButton.onclick = () => {
+      walletModal.style.visibility === 'hidden'
+      ? walletModal.style.visibility = 'initial'
+      : walletModal.style.visibility = 'hidden';
+    }
+    ethereumButton.onclick = () => {
+      this.connectEthereumWallet();
+    }
+    tezosButton.onclick = () => {
+      this.connectTezosWallet();
+    }
   },
   start: function() {
-    //this.connectTezosWallet(); 
-    //this.connectEthereumWallet();
+    // Blank
   },
   update: function(dt) {
-
+    // Blank
   },
   connectEthereumWallet: async function() {
     const providerOptions = {

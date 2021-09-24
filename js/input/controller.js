@@ -3,6 +3,7 @@ import { vec3, quat2 } from 'gl-matrix';
 WL.registerComponent('controller', {
 		inputManager: {type: WL.Type.Object},
 		speechObject: {type: WL.Type.Object},
+		recIndicator: {type: WL.Type.Object},
 		handedness: {type: WL.Type.Enum, values: ['left', 'right'], default: 'left'},
 		controlType: {type: WL.Type.Enum, values: ['move', 'rotate'], default: 'move'},
 		controlSource: {type: WL.Type.Enum, values: ['thumbstick', 'touchpad'], default: 'thumbstick'},
@@ -28,6 +29,7 @@ WL.registerComponent('controller', {
 			// Blank
 			this.input = this.inputManager.getComponent('input-manager');
 			this.speech = this.speechObject.getComponent('speech');
+			this.rec = this.recIndicator.getComponent('mesh');
 		},
 		update: function (dt) {
 			const hand = ['left', 'right'][this.handedness];
@@ -48,8 +50,14 @@ WL.registerComponent('controller', {
 			const bottom = gamepad.getButtonInfo(4); // A or X button
 			const top = gamepad.getButtonInfo(5);
 
-			if (bottom.isPressStart()) this.speech.startSpeechRecognition();
-			if (bottom.isPressEnd()) this.speech.stopSpeechRecognition();
+			if (bottom.isPressStart()) {
+				this.speech.startSpeechRecognition();
+				this.rec.active = true;
+			}
+			if (bottom.isPressEnd()) {
+				this.speech.stopSpeechRecognition();
+				this.rec.active = false;
+			}
 		},
 		move: function (xAxis, yAxis, dt) {
 			let direction = [xAxis, 0, yAxis];

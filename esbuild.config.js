@@ -10,8 +10,7 @@ build({
   outfile: 'deploy/aeternus-bundle.js',
   platform: "browser",
   define: {
-    global: 'window',
-    XMLHttpRequest: 'null'
+    global: 'window'
   },
   plugins: [
     ESBuildNodePolyfills,

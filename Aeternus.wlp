@@ -977,7 +977,8 @@
                         "head": "18",
                         "head2": "19",
                         "inputManager": "14",
-                        "speechObject": "226"
+                        "speechObject": "226",
+                        "recIndicator": "241"
                     }
                 }
             ]
@@ -1029,7 +1030,8 @@
                         "head": "18",
                         "head2": "19",
                         "inputManager": "14",
-                        "speechObject": "226"
+                        "speechObject": "226",
+                        "recIndicator": "237"
                     }
                 }
             ],
@@ -1067,7 +1069,8 @@
                         "handSkin": "133",
                         "controllerToDeactivate": "130",
                         "deactivateChildrenWithoutPose": true
-                    }
+                    },
+                    "active": true
                 },
                 {
                     "type": "vr-mode-active-switch",
@@ -1101,7 +1104,7 @@
             "parent": "134",
             "components": [
                 {
-                    "active": true
+                    "active": false
                 }
             ]
         },
@@ -1361,7 +1364,12 @@
                 "name": "r_handMeshNode<Armature",
                 "file": "models\\hand-right.glb"
             },
-            "parent": "167"
+            "parent": "167",
+            "components": [
+                {
+                    "active": false
+                }
+            ]
         },
         "169": {
             "link": {
@@ -2343,6 +2351,136 @@
                 1.0
             ],
             "deleted": true
+        },
+        "236": {
+            "name": "ControllerLeftUI",
+            "parent": "130"
+        },
+        "237": {
+            "name": "RecIndicator",
+            "parent": "236",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "238"
+                    },
+                    "active": false
+                }
+            ],
+            "transformation": [
+                0.0099999,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.001,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0099999,
+                0.0,
+                0.05,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "239": {
+            "name": "ControllerRightUI",
+            "parent": "129"
+        },
+        "241": {
+            "name": "RecIndicator",
+            "parent": "239",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "238"
+                    },
+                    "active": false
+                }
+            ],
+            "transformation": [
+                0.0099999,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.001,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0099999,
+                0.0,
+                -0.05,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "242": {
+            "name": "Test UI Root",
+            "components": [
+                {
+                    "type": "test-ui-root",
+                    "test-ui-root": {
+                        "material": "228"
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.4716925,
+                2.3389658,
+                -1.1592799,
+                1.0
+            ]
+        },
+        "243": {
+            "name": "Keyboard",
+            "components": [
+                {
+                    "type": "virtual-keyboard-ui-root2",
+                    "virtual-keyboard-ui-root2": {
+                        "material": "230"
+                    }
+                }
+            ],
+            "transformation": [
+                0.5,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.5,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.5,
+                0.0,
+                -0.9260894,
+                0.8991334,
+                -1.4782696,
+                1.0
+            ]
         }
     },
     "meshes": {
@@ -2826,6 +2964,23 @@
             },
             "Flat": {
                 "flatTexture": "235"
+            }
+        },
+        "238": {
+            "name": "rec",
+            "Phong": {
+                "diffuseColor": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "ambientColor": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
             }
         }
     },
