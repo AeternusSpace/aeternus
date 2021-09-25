@@ -2,10 +2,11 @@
 import { ethers } from 'ethers';
 import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
+import Torus from '@toruslabs/torus-embed';
 /* Tezos Imports */
 import { BeaconWallet } from '@taquito/beacon-wallet';
 import { TezosToolkit } from '@taquito/taquito';
-import { NetworkType } from '@airgap/beacon-sdk';
+import { NetworkType, BeaconEvent } from '@airgap/beacon-sdk';
 import { TaquitoTezosDomainsClient } from '@tezos-domains/taquito-client';
 import { Tzip16Module } from '@taquito/tzip16';
 /* Local Imports */
@@ -39,16 +40,22 @@ WL.registerComponent('wallet', {
     this.ethProvider;
 
     // Tezos objects
-    this.tezosWallet;
+    this.tezosWallet = null;
 
     // Setup event listeners
     walletButton.onclick = () => {
-      walletModal.style.visibility === 'hidden'
-      ? walletModal.style.visibility = 'initial'
-      : walletModal.style.visibility = 'hidden';
+      if (walletModal.style.visibility === 'hidden') {
+        walletModal.style.visibility = 'initial'
+        walletModal.classList.add('modal-fadein');
+      }
+      else {
+        walletModal.style.visibility = 'hidden';
+        walletModal.classList.remove('modal-fadein');
+      }
     }
     closeModal.onclick = () => {
       walletModal.style.visibility = 'hidden';
+      walletModal.classList.remove('modal-fadein');
     }
     this.ethereumButton.onclick = () => {
       switch (this.ethereumStatus) {
@@ -99,6 +106,9 @@ WL.registerComponent('wallet', {
         options: {
           infuraId: '040a3045d3e9426f83d7cb94569dba31'
         }
+      },
+      torus: {
+        package: Torus        
       }
     };
 
@@ -109,7 +119,15 @@ WL.registerComponent('wallet', {
       theme: "dark"
     });
 
-    this.ethProvider = await this.web3Modal.connect();
+    try {
+      this.ethProvider = await this.web3Modal.connect();
+    }
+    catch(err) {
+      console.log(err);
+      this.ethereumAddress.innerText = 'Wallet not connected.'
+      this.ethereumStatus = WALLET_STATE.DISCONNECTED;
+      return;
+    }
     
     const ethersProvider = new ethers.providers.Web3Provider(this.ethProvider);
     const signer = ethersProvider.getSigner();
@@ -137,7 +155,9 @@ WL.registerComponent('wallet', {
   },
   connectTezosWallet: async function() {
     this.tezosAddress.innerText = "Connecting...";
-    this.tezosStatus = WALLET_STATE.CONNECTING;
+    // There is currently no good way to detect if the window for this gets closed right now
+    // Going to skip this for the time being
+    // this.tezosStatus = WALLET_STATE.CONNECTING;
 
     const rpcUrl = 'https://api.tez.ie/rpc/mainnet';
     const apiBase = 'https://api.better-call.dev/v1/account';
@@ -145,10 +165,13 @@ WL.registerComponent('wallet', {
     const Tezos = new TezosToolkit(rpcUrl);
     Tezos.addExtension(new Tzip16Module());
     const client = new TaquitoTezosDomainsClient({ tezos: Tezos, network: 'mainnet', caching: { enabled: true } });
-    this.tezosWallet = new BeaconWallet({
-      name: "Aeternus",
-      preferredNetwork: NetworkType.MAINNET,
-    });
+    if (!this.tezosWallet) {
+      this.tezosWallet = new BeaconWallet({
+        name: "Aeternus",
+        preferredNetwork: NetworkType.MAINNET,
+      });
+    }
+    Tezos.setWalletProvider(this.tezosWallet);
     const activeAccount = await this.tezosWallet.client.getActiveAccount();
     if (activeAccount) {
       currentAddress = activeAccount.address;
@@ -162,7 +185,6 @@ WL.registerComponent('wallet', {
 
       currentAddress = await this.tezosWallet.getPKH();
     }
-    Tezos.setWalletProvider(this.tezosWallet);
     const address = (await client.resolver.resolveAddressToName(currentAddress)) ?? currentAddress;
     
     this.tezosAddress.innerText = address;
@@ -173,6 +195,7 @@ WL.registerComponent('wallet', {
     this.tezosStatus = WALLET_STATE.DISCONNECTING;
 
     await this.tezosWallet.clearActiveAccount();
+    this.tezosWallet = null;
 
     this.tezosAddress.innerText = "No wallet connected.";
     this.tezosStatus = WALLET_STATE.DISCONNECTED;

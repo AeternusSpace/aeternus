@@ -12,6 +12,7 @@ build({
   define: {
     global: 'window'
   },
+  external: ['XMLHttpRequest'],
   plugins: [
     ESBuildNodePolyfills,
     NodeGlobalsPolyfill.default({ buffer: true, process: true })

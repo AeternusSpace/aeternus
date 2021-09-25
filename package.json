@@ -23,6 +23,7 @@
     "@taquito/beacon-wallet": "^10.1.1",
     "@taquito/taquito": "^10.1.1",
     "@tezos-domains/taquito-client": "^1.7.0",
+    "@toruslabs/torus-embed": "^1.13.4",
     "@walletconnect/web3-provider": "^1.6.5",
     "@wonderlandengine/components": "^0.8.13",
     "ethers": "^5.4.7",
