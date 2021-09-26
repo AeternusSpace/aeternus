@@ -15,7 +15,6 @@ build({
   inject: [
     './shims.js'
   ],
-  external: ['XMLHttpRequest'],
   plugins: [
     ESBuildNodePolyfills,
     NodeGlobalsPolyfill.default({ buffer: true, process: true })

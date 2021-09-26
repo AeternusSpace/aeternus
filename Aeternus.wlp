@@ -851,7 +851,7 @@
                     "type": "cursor",
                     "cursor": {
                         "cursorObject": "127",
-                        "collisionGroup": 0,
+                        "collisionGroup": 1,
                         "cursorRayObject": "209",
                         "cursorRayScalingAxis": "y"
                     }
@@ -1898,7 +1898,7 @@
                     "type": "cursor",
                     "cursor": {
                         "cursorObject": "215",
-                        "collisionGroup": 0,
+                        "collisionGroup": 1,
                         "cursorRayObject": "213",
                         "cursorRayScalingAxis": "y"
                     }
@@ -3017,6 +3017,47 @@
                 0.0,
                 5.3000001,
                 0.0,
+                1.0
+            ]
+        },
+        "276": {
+            "name": "Light.002",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "light"
+                }
+            ],
+            "deleted": true
+        },
+        "277": {
+            "name": "Menu",
+            "parent": "205",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "273"
+                    }
+                }
+            ],
+            "transformation": [
+                0.25,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.2165062,
+                -0.125,
+                0.0,
+                0.0,
+                0.0004999,
+                0.000866,
+                0.0,
+                0.0,
+                1.0,
+                -0.75,
                 1.0
             ]
         }
