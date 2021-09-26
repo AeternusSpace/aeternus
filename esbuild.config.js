@@ -12,6 +12,9 @@ build({
   define: {
     global: 'window'
   },
+  inject: [
+    './shims.js'
+  ],
   external: ['XMLHttpRequest'],
   plugins: [
     ESBuildNodePolyfills,
