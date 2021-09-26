@@ -4,14 +4,17 @@ WL.registerComponent('controller', {
 		inputManager: {type: WL.Type.Object},
 		speechObject: {type: WL.Type.Object},
 		recIndicator: {type: WL.Type.Object},
+		quickMenuObject: {type: WL.Type.Object},
 		handedness: {type: WL.Type.Enum, values: ['left', 'right'], default: 'left'},
 		controlType: {type: WL.Type.Enum, values: ['move', 'rotate'], default: 'move'},
 		controlSource: {type: WL.Type.Enum, values: ['thumbstick', 'touchpad'], default: 'thumbstick'},
 		player: { type: WL.Type.Object, default: null },
 		head: { type: WL.Type.Object, default: null },
 		head2: { type: WL.Type.Object, default: null },
+		/* Smooth locomotion options */
 		moveSpeed: { type: WL.Type.Float, default: 1 },
 		allowFly: { type: WL.Type.Bool, default: false },
+		/* Rotation options */
 		rotationType: {type: WL.Type.Enum, values: ['snap', 'smooth'], default: 'snap'},
 		snapDegrees: { type: WL.Type.Int, default: 45 },
 	}, {
@@ -24,12 +27,14 @@ WL.registerComponent('controller', {
 			this.min = -4;
 			this.max = 4;
 
+			this.speechEnabled = true;
+			this.tempPos = [0, 0, 0];
 		},
 		start: function () {
-			// Blank
 			this.input = this.inputManager.getComponent('input-manager');
 			this.speech = this.speechObject.getComponent('speech');
 			this.rec = this.recIndicator.getComponent('mesh');
+			this.quickMenu = this.quickMenuObject.getComponent('quick-menu');
 		},
 		update: function (dt) {
 			const hand = ['left', 'right'][this.handedness];
@@ -50,13 +55,28 @@ WL.registerComponent('controller', {
 			const bottom = gamepad.getButtonInfo(4); // A or X button
 			const top = gamepad.getButtonInfo(5);
 
-			if (bottom.isPressStart()) {
-				this.speech.startSpeechRecognition();
-				this.rec.active = true;
+			// Speech functions
+			if (this.speechEnabled) {
+				if (bottom.isPressStart()) {
+					this.speech.startSpeechRecognition();
+					this.rec.active = true;
+				}
+				if (bottom.isPressEnd()) {
+					this.speech.stopSpeechRecognition();
+					this.rec.active = false;
+				}
 			}
-			if (bottom.isPressEnd()) {
-				this.speech.stopSpeechRecognition();
-				this.rec.active = false;
+
+			// Context menu
+			if (!this.quickMenu?.summoned) {
+				if (top.isPressStart()) {
+					// Show context menu
+					this.object.getTranslationWorld(this.tempPos);
+					this.quickMenu.show(this.tempPos, this.object.rotationWorld);
+				}
+				if (top.isPressEnd()) {
+					this.quickMenu.hide();
+				}
 			}
 		},
 		move: function (xAxis, yAxis, dt) {

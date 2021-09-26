@@ -268,16 +268,16 @@ class Gamepad {
         if (this._setSelectStart) {
             buttonSelect.isPressed = true;
         }
-        if (this._selectEnd) {
+        if (this._setSelectEnd) {
             buttonSelect.isPressed = false;
         }
 
         let buttonSqueeze = this.buttonInfos[ButtonType.SQUEEZE];
-        if (this._squeezeStart) {
+        if (this._setSqueezeStart) {
             buttonSqueeze.isPressed = true;
         }
 
-        if (this._squeezeEnd) {
+        if (this._setSqueezeEnd) {
             buttonSqueeze.isPressed = false;
         }
     }
@@ -502,35 +502,33 @@ class Gamepad {
             }
         }.bind(this));
 
-        const self = this;
-        this.session.addEventListener('selectstart', () => this._selectStart.bind(self));
-        this.session.addEventListener('selectend', () => this._selectEnd.bind(self));
+        this.session.addEventListener('selectstart', this._setSelectStart);
+        this.session.addEventListener('selectend', this._setSelectEnd);
 
-        this.session.addEventListener('squeezestart', () => this._squeezeStart.bind(self));
-        this.session.addEventListener('squeezeend', () => this._squeezeEnd.bind(self));
+        this.session.addEventListener('squeezestart', this._setSqueezeStart);
+        this.session.addEventListener('squeezeend', this._setSqueezeEnd);
     }
 
     //Select and Squeeze are managed this way to be more compatible
-    _selectStart(event) {
+    _setSelectStart(event) {
         if (event.inputSource.handedness == this.handedness) {
             this.selectStart = true;
         }
-        return;
     }
 
-    _selectEnd(event) {
+    _setSelectEnd(event) {
         if (event.inputSource.handedness == this.handedness) {
             this.selectEnd = true;
         }
     }
 
-    _squeezeStart(event) {
+    _setSqueezeStart(event) {
         if (event.inputSource.handedness == this.handedness) {
             this.squeezeStart = true;
         }
     }
 
-    _squeezeEnd(event) {
+    _setSqueezeEnd(event) {
         if (event.inputSource.handedness == this.handedness) {
             this.squeezeEnd = true;
         }

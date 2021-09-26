@@ -39,7 +39,8 @@
                         "pointerObject": "17",
                         "cursorObject": "17",
                         "pointerComponentName": "mouse-look"
-                    }
+                    },
+                    "active": true
                 }
             ]
         },
@@ -52,7 +53,7 @@
                         "mesh": "7",
                         "material": "20"
                     },
-                    "active": true
+                    "active": false
                 },
                 {
                     "type": "collision",
@@ -66,7 +67,8 @@
                             ]
                         },
                         "groups": 4
-                    }
+                    },
+                    "active": false
                 }
             ],
             "transformation": [
@@ -135,7 +137,10 @@
             "parent": "205",
             "components": [
                 {
-                    "type": "view"
+                    "type": "view",
+                    "view": {
+                        "far": 500.0
+                    }
                 },
                 {
                     "type": "mouse-look"
@@ -978,7 +983,10 @@
                         "head2": "19",
                         "inputManager": "14",
                         "speechObject": "226",
-                        "recIndicator": "241"
+                        "recIndicator": "241",
+                        "contextMenu": "244",
+                        "contextMenuObject": "244",
+                        "quickMenuObject": "244"
                     }
                 }
             ]
@@ -1031,7 +1039,10 @@
                         "head2": "19",
                         "inputManager": "14",
                         "speechObject": "226",
-                        "recIndicator": "237"
+                        "recIndicator": "237",
+                        "contextMenu": "244",
+                        "contextMenuObject": "244",
+                        "quickMenuObject": "244"
                     }
                 }
             ],
@@ -2490,29 +2501,40 @@
             "parent": "242"
         },
         "244": {
-            "name": "ContextMenu",
+            "name": "QuickMenu",
             "parent": "205",
             "transformation": [
-                1.0,
+                0.05,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.05,
                 0.0,
                 0.0,
                 0.0,
                 0.0,
                 1.0,
                 0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
+                -0.3842746,
+                -10.0,
                 -2.384185791015625e-7,
                 1.0
+            ],
+            "components": [
+                {
+                    "type": "quick-menu",
+                    "quick-menu": {
+                        "top": "245",
+                        "bottom": "247",
+                        "left": "248",
+                        "right": "249"
+                    }
+                }
             ]
         },
         "245": {
-            "name": "Top",
+            "name": "Navigation",
             "parent": "244",
             "components": [
                 {
@@ -2521,46 +2543,85 @@
                         "mesh": "8",
                         "material": "246"
                     }
+                },
+                {
+                    "type": "cursor-target"
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.05,
+                                0.05,
+                                0.001
+                            ]
+                        },
+                        "aabb": {
+                            "extents": [
+                                0.025,
+                                0.025,
+                                0.001
+                            ]
+                        }
+                    }
                 }
             ],
             "transformation": [
-                0.0176778,
-                0.0176778,
+                0.7071067,
+                0.7071068,
                 0.0,
                 0.0,
-                -0.0176778,
-                0.0176778,
+                -0.7071068,
+                0.7071067,
                 0.0,
                 0.0,
                 0.0,
                 0.0,
                 0.001,
                 0.0,
-                -9.49949026107788e-7,
-                0.0,
+                -0.000001,
+                1.5,
                 -0.1134828,
                 1.0
             ]
         },
         "247": {
-            "name": "Bottom",
+            "name": "Settings",
             "parent": "244",
             "components": [
                 {
                     "type": "mesh",
                     "mesh": {
                         "mesh": "8",
-                        "material": "246"
+                        "material": "273"
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.05,
+                                0.05,
+                                0.001
+                            ]
+                        }
                     }
                 }
             ],
             "transformation": [
-                0.0176778,
-                0.0176778,
+                0.7071067,
+                0.7071068,
                 0.0,
                 0.0,
-                -0.0176778,
-                0.0176778,
+                -0.7071068,
+                0.7071067,
                 0.0,
                 0.0,
                 0.0,
@@ -2568,70 +2629,394 @@
                 0.001,
                 0.0,
                 0.0,
-                -0.075,
+                -1.5,
                 -0.1134828,
                 1.0
             ]
         },
         "248": {
-            "name": "Left",
+            "name": "Friends",
             "parent": "244",
             "components": [
                 {
                     "type": "mesh",
                     "mesh": {
                         "mesh": "8",
-                        "material": "246"
+                        "material": "274"
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.05,
+                                0.05,
+                                0.001
+                            ]
+                        }
                     }
                 }
             ],
             "transformation": [
-                0.0176778,
-                0.0176778,
+                0.7071067,
+                0.7071068,
                 0.0,
                 0.0,
-                -0.0176778,
-                0.0176778,
+                -0.7071068,
+                0.7071067,
                 0.0,
                 0.0,
                 0.0,
                 0.0,
                 0.001,
                 0.0,
-                -0.0375,
-                -0.0374996,
+                -1.4999998,
+                0.0,
                 -0.1134828,
                 1.0
             ]
         },
         "249": {
-            "name": "Left",
+            "name": "Profile",
             "parent": "244",
             "components": [
                 {
                     "type": "mesh",
                     "mesh": {
                         "mesh": "8",
-                        "material": "246"
+                        "material": "275"
+                    }
+                },
+                {
+                    "type": "cursor-target"
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.05,
+                                0.05,
+                                0.001
+                            ]
+                        }
                     }
                 }
             ],
             "transformation": [
-                0.0176778,
-                0.0176778,
+                0.7071067,
+                0.7071068,
                 0.0,
                 0.0,
-                -0.0176778,
-                0.0176778,
+                -0.7071068,
+                0.7071067,
                 0.0,
                 0.0,
                 0.0,
                 0.0,
                 0.001,
                 0.0,
-                0.0375,
-                -0.0374996,
+                1.4999998,
+                0.0,
                 -0.1134828,
+                1.0
+            ]
+        },
+        "250": {
+            "name": "NavigationText",
+            "parent": "245",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "Navigation"
+                    }
+                }
+            ],
+            "transformation": [
+                2.1213202,
+                -2.1213204,
+                0.0,
+                0.0,
+                2.1213204,
+                2.1213202,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                3.0,
+                0.0,
+                0.0000076,
+                -0.0000076,
+                1.5,
+                1.0
+            ]
+        },
+        "251": {
+            "name": "SettingsText",
+            "parent": "247",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "Settings"
+                    }
+                }
+            ],
+            "transformation": [
+                2.1213202,
+                -2.1213204,
+                0.0,
+                0.0,
+                2.1213204,
+                2.1213202,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                3.0,
+                0.0,
+                0.0000075,
+                -0.0000076,
+                1.4999998,
+                1.0
+            ]
+        },
+        "252": {
+            "name": "FriendsText",
+            "parent": "248",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "Friends"
+                    }
+                }
+            ],
+            "transformation": [
+                2.1213202,
+                -2.1213204,
+                0.0,
+                0.0,
+                2.1213204,
+                2.1213202,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                3.0,
+                0.0,
+                0.0000075,
+                -0.0000076,
+                1.4999998,
+                1.0
+            ]
+        },
+        "253": {
+            "name": "ProfileText",
+            "parent": "249",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "Profile"
+                    }
+                }
+            ],
+            "transformation": [
+                2.1213202,
+                -2.1213204,
+                0.0,
+                0.0,
+                2.1213204,
+                2.1213202,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                3.0,
+                0.0,
+                0.0000075,
+                -0.0000076,
+                1.4999998,
+                1.0
+            ]
+        },
+        "267": {
+            "link": {
+                "name": "structure",
+                "file": "meshes\\test_structure.glb"
+            },
+            "parent": "270",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1.1920928244535389e-7,
+                0.9999998,
+                0.0,
+                0.0,
+                -0.9999998,
+                -1.1920928244535389e-7,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                null
+            ]
+        },
+        "268": {
+            "link": {
+                "name": "windows",
+                "file": "meshes\\test_structure.glb"
+            },
+            "parent": "270",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1.1920928244535389e-7,
+                0.9999998,
+                0.0,
+                0.0,
+                -0.9999998,
+                -1.1920928244535389e-7,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "269": {
+            "link": {
+                "name": "floor",
+                "file": "meshes\\test_structure.glb"
+            },
+            "parent": "270",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1.1920928244535389e-7,
+                0.9999998,
+                0.0,
+                0.0,
+                -0.9999998,
+                -1.1920928244535389e-7,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "270": {
+            "name": "Structure",
+            "transformation": [
+                50.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                50.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                50.0,
+                0.0,
+                -2.2013325,
+                -34.5099983,
+                -133.6518402,
+                1.0
+            ]
+        },
+        "271": {
+            "name": "Collision",
+            "parent": "267",
+            "components": [
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "aabb",
+                        "aabb": {
+                            "extents": [
+                                17.6000003,
+                                0.3,
+                                18.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.9999998,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.9999998,
+                0.0,
+                0.0995856,
+                2.5090916,
+                -0.685,
+                1.0
+            ]
+        },
+        "272": {
+            "name": "Light.001",
+            "components": [
+                {
+                    "type": "light",
+                    "light": {
+                        "type": "point",
+                        "attenuation": 0.001,
+                        "color": [
+                            0.9999899,
+                            0.999998,
+                            1.0
+                        ]
+                    },
+                    "active": true
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                5.3000001,
+                0.0,
                 1.0
             ]
         }
@@ -2771,6 +3156,24 @@
                 "name": "TeleportIndicator",
                 "file": "models\\teleport-indicator.glb"
             }
+        },
+        "264": {
+            "link": {
+                "name": "structure",
+                "file": "meshes\\test_structure.glb"
+            }
+        },
+        "265": {
+            "link": {
+                "name": "windows",
+                "file": "meshes\\test_structure.glb"
+            }
+        },
+        "266": {
+            "link": {
+                "name": "floor",
+                "file": "meshes\\test_structure.glb"
+            }
         }
     },
     "textures": {
@@ -2809,6 +3212,24 @@
             "link": {
                 "name": "stars.jpg",
                 "file": "res\\stars.jpg"
+            }
+        },
+        "258": {
+            "link": {
+                "name": "texture_0",
+                "file": "meshes\\test_structure.glb"
+            }
+        },
+        "259": {
+            "link": {
+                "name": "texture_1",
+                "file": "meshes\\test_structure.glb"
+            }
+        },
+        "260": {
+            "link": {
+                "name": "texture_2",
+                "file": "meshes\\test_structure.glb"
             }
         }
     },
@@ -2863,6 +3284,24 @@
             "link": {
                 "name": "stars.jpg",
                 "file": "res\\stars.jpg"
+            }
+        },
+        "255": {
+            "link": {
+                "name": "structure_mtl1_diffcol",
+                "file": "meshes\\test_structure.glb"
+            }
+        },
+        "256": {
+            "link": {
+                "name": "olq1b2",
+                "file": "meshes\\test_structure.glb"
+            }
+        },
+        "257": {
+            "link": {
+                "name": "c12",
+                "file": "meshes\\test_structure.glb"
             }
         }
     },
@@ -3137,19 +3576,132 @@
             }
         },
         "246": {
-            "name": "ContextMenuItem",
+            "name": "QuickMenuItemTop",
             "Phong": {
                 "diffuseColor": [
-                    9.999999974752428e-7,
                     0.0,
                     0.0,
-                    1.0
+                    0.0,
+                    0.7529411
                 ],
                 "ambientColor": [
                     0.1058823,
                     0.1058812,
                     0.1058812,
                     1.0
+                ],
+                "alphaMaskThreshold": 0.5
+            },
+            "pipeline": "254",
+            "Flat": {
+                "flatTexture": null,
+                "color": [
+                    0.090196,
+                    0.090196,
+                    0.090196,
+                    0.7490196
+                ]
+            }
+        },
+        "261": {
+            "link": {
+                "name": "material_1",
+                "file": "meshes\\test_structure.glb"
+            }
+        },
+        "262": {
+            "link": {
+                "name": "material_1_windows",
+                "file": "meshes\\test_structure.glb"
+            }
+        },
+        "263": {
+            "link": {
+                "name": "material_1_floor",
+                "file": "meshes\\test_structure.glb"
+            }
+        },
+        "273": {
+            "name": "QuickMenuItemBottom",
+            "Phong": {
+                "diffuseColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.7529411
+                ],
+                "ambientColor": [
+                    0.1058823,
+                    0.1058812,
+                    0.1058812,
+                    1.0
+                ],
+                "alphaMaskThreshold": 0.5
+            },
+            "pipeline": "254",
+            "Flat": {
+                "flatTexture": null,
+                "color": [
+                    0.090196,
+                    0.090196,
+                    0.090196,
+                    0.7490196
+                ]
+            }
+        },
+        "274": {
+            "name": "QuickMenuItemLeft",
+            "Phong": {
+                "diffuseColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.7529411
+                ],
+                "ambientColor": [
+                    0.1058823,
+                    0.1058812,
+                    0.1058812,
+                    1.0
+                ],
+                "alphaMaskThreshold": 0.5
+            },
+            "pipeline": "254",
+            "Flat": {
+                "flatTexture": null,
+                "color": [
+                    0.090196,
+                    0.090196,
+                    0.090196,
+                    0.7490196
+                ]
+            }
+        },
+        "275": {
+            "name": "QuickMenuItemRight",
+            "Phong": {
+                "diffuseColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.7529411
+                ],
+                "ambientColor": [
+                    0.1058823,
+                    0.1058812,
+                    0.1058812,
+                    1.0
+                ],
+                "alphaMaskThreshold": 0.5
+            },
+            "pipeline": "254",
+            "Flat": {
+                "flatTexture": null,
+                "color": [
+                    0.090196,
+                    0.090196,
+                    0.090196,
+                    0.7490196
                 ]
             }
         }
@@ -3260,15 +3812,18 @@
             }
         },
         "editor": {
-            "serverCOEP": "unsafe-none"
+            "serverCOEP": "unsafe-none",
+            "camera": {
+                "far": 1000.0
+            }
         },
         "rendering": {
             "font": "fonts/AtkinsonHyperlegible-Regular.ttf",
             "useMipMaps": false,
             "clearColor": [
-                0.2313725,
-                0.4509803,
-                0.7137255,
+                0.0901951,
+                0.0901955,
+                0.090196,
                 1.0
             ]
         }
@@ -3338,6 +3893,28 @@
                 "name": "Particle",
                 "file": "default"
             }
+        },
+        "254": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            },
+            "name": "Transparent",
+            "features": {
+                "ALPHA_MASKED": true,
+                "TEXTURED": false,
+                "ALPHA": true,
+                "NORMAL_MAPPING": false,
+                "WITH_FOG": false
+            },
+            "doubleSided": true,
+            "blending": true,
+            "blendDest": "one minus destination alpha",
+            "blendEqRgb": "screen",
+            "depthFunction": "less or equal",
+            "sampleAlphaToCoverage": true,
+            "blendEqAlpha": "add",
+            "shader": "5"
         }
     },
     "files": [
@@ -3347,6 +3924,7 @@
         "models/hand-right.glb",
         "models/button.glb",
         "models/teleport-indicator.glb",
-        "res/stars.jpg"
+        "res/stars.jpg",
+        "meshes/test_structure.glb"
     ]
 }

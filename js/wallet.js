@@ -6,7 +6,7 @@ import Torus from '@toruslabs/torus-embed';
 /* Tezos Imports */
 import { BeaconWallet } from '@taquito/beacon-wallet';
 import { TezosToolkit } from '@taquito/taquito';
-import { NetworkType, BeaconEvent } from '@airgap/beacon-sdk';
+import { NetworkType } from '@airgap/beacon-sdk';
 import { TaquitoTezosDomainsClient } from '@tezos-domains/taquito-client';
 import { Tzip16Module } from '@taquito/tzip16';
 /* Local Imports */
