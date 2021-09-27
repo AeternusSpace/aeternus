@@ -4,6 +4,12 @@ import NodeGlobalsPolyfill from '@esbuild-plugins/node-globals-polyfill';
 import ESBuildNodePolyfills from 'esbuild-plugin-node-polyfills';
 
 dotenv.config();
+const envVars = {
+  'process.env.SPEECHLY_APPID': JSON.stringify(process.env.SPEECHLY_APPID),
+  'process.env.INFURA_ETHEREUM_PROJECT_ID': JSON.stringify(process.env.INFURA_ETHEREUM_PROJECT_ID),
+  'process.env.INFURA_IPFS_PROJECT_ID': JSON.stringify(process.env.INFURA_IPFS_PROJECT_ID),
+  'process.env.INFURA_IPFS_ENDPOINT': JSON.stringify(process.env.INFURA_IPFS_ENDPOINT)
+}
 
 build({
   entryPoints: ['./js/bundle.js'],
@@ -14,7 +20,7 @@ build({
   platform: "browser",
   define: {
     global: 'window',
-    'process.env.SPEECHLY_APPID': JSON.stringify(process.env.SPEECHLY_APPID)
+    ...envVars
   },
   inject: [
     './shims.js'

@@ -108,7 +108,7 @@ WL.registerComponent('wallet', {
       walletconnect: {
         package: WalletConnectProvider,
         options: {
-          infuraId: '040a3045d3e9426f83d7cb94569dba31'
+          infuraId: process.env.INFURA_ETHEREUM_PROJECT_ID
         }
       },
       torus: {

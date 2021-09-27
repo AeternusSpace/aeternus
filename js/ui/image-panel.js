@@ -30,6 +30,7 @@ WL.registerComponent('image-panel', {
   show: async function() {
     if (this.chain) { 
       const tokens = await this.wallet.getTezosTokens();
+      console.log(tokens);
       this.images = tokens.map(token => {
         const img = document.createElement('img');
         img.crossOrigin = 'anonymous';
@@ -39,7 +40,7 @@ WL.registerComponent('image-panel', {
       this.root = new WLRoot(this.object, this.material,
         new ScrollableViewportWidget(
           new Column()
-          .add(this.images.slice(0, 4)),
+          .add(this.images.slice(0, 16)),
           400,
           400
         ),
