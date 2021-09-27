@@ -2443,9 +2443,6 @@
                     "test-ui-root": {
                         "material": "228"
                     }
-                },
-                {
-                    "type": "cursor-target"
                 }
             ],
             "transformation": [
@@ -2475,9 +2472,6 @@
                     "virtual-keyboard-ui-root2": {
                         "material": "230"
                     }
-                },
-                {
-                    "type": "cursor-target"
                 }
             ],
             "transformation": [
@@ -3039,7 +3033,8 @@
                     "mesh": {
                         "mesh": "8",
                         "material": "273"
-                    }
+                    },
+                    "active": false
                 }
             ],
             "transformation": [

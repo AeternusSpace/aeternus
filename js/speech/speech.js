@@ -13,7 +13,7 @@ WL.registerComponent('speech', {
 
         this.speaking = false;
         
-        const SpeechRecognition = window.webkitSpeechRecognition || createSpeechlySpeechRecognition('fc89d3ca-07f8-49fd-ac76-e732256f427e');
+        const SpeechRecognition = window.webkitSpeechRecognition || createSpeechlySpeechRecognition(process.env.SPEECHLY_APPID);
         this.speechRecognition = new SpeechRecognition();
         if (SpeechRecognition == window.webkitSpeechRecognition) {
             console.log("This browser supports SpeechRecognition.");
