@@ -19,6 +19,9 @@ const WALLET_STATE = {
   DISCONNECTING: 3,
 };
 
+const tezRpcUrl = 'https://api.tez.ie/rpc/mainnet';
+const tezApiBase = 'https://api.better-call.dev/v1/account';
+
 WL.registerComponent('wallet', {
     
 }, {
@@ -41,6 +44,7 @@ WL.registerComponent('wallet', {
 
     // Tezos objects
     this.tezosWallet = null;
+    this.currentTezosAddress = null;
 
     // Setup event listeners
     walletButton.onclick = () => {
@@ -159,10 +163,7 @@ WL.registerComponent('wallet', {
     // Going to skip this for the time being
     // this.tezosStatus = WALLET_STATE.CONNECTING;
 
-    const rpcUrl = 'https://api.tez.ie/rpc/mainnet';
-    const apiBase = 'https://api.better-call.dev/v1/account';
-    let currentAddress;
-    const Tezos = new TezosToolkit(rpcUrl);
+    const Tezos = new TezosToolkit(tezRpcUrl);
     Tezos.addExtension(new Tzip16Module());
     const client = new TaquitoTezosDomainsClient({ tezos: Tezos, network: 'mainnet', caching: { enabled: true } });
     if (!this.tezosWallet) {
@@ -174,7 +175,7 @@ WL.registerComponent('wallet', {
     Tezos.setWalletProvider(this.tezosWallet);
     const activeAccount = await this.tezosWallet.client.getActiveAccount();
     if (activeAccount) {
-      currentAddress = activeAccount.address;
+      this.currentTezosAddress = activeAccount.address;
     }
     else {
       await this.tezosWallet.requestPermissions({
@@ -183,9 +184,9 @@ WL.registerComponent('wallet', {
         },
       });
 
-      currentAddress = await this.tezosWallet.getPKH();
+      this.currentTezosAddress = await this.tezosWallet.getPKH();
     }
-    const address = (await client.resolver.resolveAddressToName(currentAddress)) ?? currentAddress;
+    const address = (await client.resolver.resolveAddressToName(this.currentTezosAddress)) ?? this.currentTezosAddress;
     
     this.tezosAddress.innerText = address;
     this.tezosStatus = WALLET_STATE.CONNECTED;
@@ -201,14 +202,12 @@ WL.registerComponent('wallet', {
     this.tezosStatus = WALLET_STATE.DISCONNECTED;
   },
   getTezosTokens: async function() {
-    /* Update this later
     // This needs to eventually check total amount of tokens and grab anything over 50 using offset parameter
-    const allTokens = await (await fetch(`${apiBase}/mainnet/${currentAddress}/token_balances?size=50`)).json();
+    const allTokens = await (await fetch(`${tezApiBase}/mainnet/${this.currentTezosAddress}/token_balances?size=50`)).json();
     console.log(allTokens);
     const tokens = allTokens.balances.filter(token => token.artifact_uri);
     tokens.forEach(token => token.artifact_uri = parseIPFS(token.artifact_uri));
-    console.log("Pulling tokens from: " + address);
-    console.log(tokens);
-    */
+    console.log("Pulling tokens from: " + this.currentTezosAddress);
+    return tokens;
   }
 });

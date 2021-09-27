@@ -2522,7 +2522,9 @@
                         "top": "245",
                         "bottom": "247",
                         "left": "248",
-                        "right": "249"
+                        "right": "249",
+                        "menu": "277",
+                        "menuObject": "277"
                     }
                 }
             ]
@@ -3029,12 +3031,22 @@
             "parent": "205",
             "components": [
                 {
-                    "type": "mesh",
-                    "mesh": {
-                        "mesh": "8",
-                        "material": "273"
-                    },
-                    "active": false
+                    "type": "menu",
+                    "menu": {
+                        "imagePanel": "277"
+                    }
+                },
+                {
+                    "type": "image-panel",
+                    "image-panel": {
+                        "wallet": "217",
+                        "chain": "tez",
+                        "walletObject": "217",
+                        "material": "278"
+                    }
+                },
+                {
+                    "type": "collision"
                 }
             ],
             "transformation": [
@@ -3051,7 +3063,7 @@
                 0.000866,
                 0.0,
                 0.0,
-                1.0,
+                -10.0,
                 -0.75,
                 1.0
             ]
@@ -3740,6 +3752,10 @@
                     0.7490196
                 ]
             }
+        },
+        "278": {
+            "name": "ImagePanel",
+            "pipeline": "38"
         }
     },
     "shaders": {

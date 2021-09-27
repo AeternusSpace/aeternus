@@ -3,19 +3,25 @@ WL.registerComponent('quick-menu', {
   bottom: {type: WL.Type.Object},
   left: {type: WL.Type.Object},
   right: {type: WL.Type.Object},
+  menuObject: {type: WL.Type.Object}
 }, {
   init: function() {
     this.summoned = false;
+
+    this.tempPos = [0, 0, 0];
   },
   start: function() {
     this.navigation = this.top.getComponent('cursor-target');
     this.settings = this.bottom.getComponent('cursor-target');
     this.friends = this.left.getComponent('cursor-target');
     this.profile = this.right.getComponent('cursor-target');
+    this.menu = this.menuObject.getComponent('menu');
 
     // Navigation button
     this.navigation.addClickFunction(() => {
       console.log('Clicked navigation button');
+      this.object.parent.getTranslationWorld(this.tempPos);
+      this.menu.show(this.tempPos, this.object.parent.rotationWorld);
     });
     this.navigation.addHoverFunction(() => {
       this.navigation.object.getComponent('mesh').material.diffuseColor = [1, 0, 0, .8];
