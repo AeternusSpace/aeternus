@@ -19,9 +19,7 @@ WL.registerComponent('quick-menu', {
 
     // Navigation button
     this.navigation.addClickFunction(() => {
-      console.log('Clicked navigation button');
-      this.object.parent.getTranslationWorld(this.tempPos);
-      this.menu.show(this.tempPos, this.object.parent.rotationWorld);
+      console.log('Clicked navigation button');      
     });
     this.navigation.addHoverFunction(() => {
       this.navigation.object.getComponent('mesh').material.diffuseColor = [1, 0, 0, .8];
@@ -55,6 +53,8 @@ WL.registerComponent('quick-menu', {
     // Profile button
     this.profile.addClickFunction(() => {
       console.log('Clicked profile button');
+      this.object.parent.getTranslationWorld(this.tempPos);
+      this.menu.show(this.tempPos, this.object.parent.rotationWorld);
     });
     this.profile.addHoverFunction(() => {
       this.profile.object.getComponent('mesh').material.diffuseColor = [1, 0, 0, .8];

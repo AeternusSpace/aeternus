@@ -205,8 +205,11 @@ WL.registerComponent('wallet', {
     // This needs to eventually check total amount of tokens and grab anything over 50 using offset parameter
     const allTokens = await (await fetch(`${tezApiBase}/mainnet/${this.currentTezosAddress}/token_balances?size=50`)).json();
     console.log(allTokens);
-    const tokens = allTokens.balances.filter(token => token.artifact_uri);
-    tokens.forEach(token => token.artifact_uri = parseIPFS(token.artifact_uri));
+    let tokens = allTokens.balances.filter(token => token.artifact_uri);
+    tokens.forEach(token => {
+      token.artifact_uri = parseIPFS(token.artifact_uri);
+      token.thumbnail_uri = parseIPFS(token.thumbnail_uri);
+    });
     console.log("Pulling tokens from: " + this.currentTezosAddress);
     return tokens;
   }

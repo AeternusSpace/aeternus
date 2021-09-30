@@ -8,7 +8,7 @@ const envVars = {
   'process.env.SPEECHLY_APPID': JSON.stringify(process.env.SPEECHLY_APPID),
   'process.env.INFURA_ETHEREUM_PROJECT_ID': JSON.stringify(process.env.INFURA_ETHEREUM_PROJECT_ID),
   'process.env.INFURA_IPFS_PROJECT_ID': JSON.stringify(process.env.INFURA_IPFS_PROJECT_ID),
-  'process.env.INFURA_IPFS_ENDPOINT': JSON.stringify(process.env.INFURA_IPFS_ENDPOINT)
+  'process.env.INFURA_IPFS_PROJECT_SECRET': JSON.stringify(process.env.INFURA_IPFS_PROJECT_SECRET)
 }
 
 build({

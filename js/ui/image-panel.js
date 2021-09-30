@@ -10,15 +10,10 @@ WL.registerComponent('image-panel', {
   init() {
     this.images = [];
 
-    // this.root = new WLRoot(this.object, this.material,
-    //   new ScrollableViewportWidget(
-    //     new Column()
-    //     .add(this.images),
-    //     400,
-    //     400
-    //   ),
-    // );
-    // this.root.unitsPerPixel = 0.000625;
+    this.column = new Column();
+    this.scrollView = new ScrollableViewportWidget(this.column, 400, 400);
+    this.root = new WLRoot(this.object, this.material, this.scrollView);
+    this.root.unitsPerPixel = 0.000625;
   },
   start: function() {
     this.wallet = this.walletObject.getComponent('wallet');
@@ -30,22 +25,24 @@ WL.registerComponent('image-panel', {
   show: async function() {
     if (this.chain) { 
       const tokens = await this.wallet.getTezosTokens();
-      console.log(tokens);
-      this.images = tokens.map(token => {
-        const img = document.createElement('img');
-        img.crossOrigin = 'anonymous';
-        img.src = token.artifact_uri;
-        return new Icon(img, 400, 400);
+      tokens.forEach(async token => {
+        const blob = await (await fetch(token.artifact_uri)).blob();
+        if (blob.type.includes('image')) {
+          const img = document.createElement('img');
+          img.crossOrigin = 'anonymous';
+          img.src = URL.createObjectURL(blob);
+          this.column.add(new Icon(img, 400, 400));
+        }
+        else if (blob.type.includes('video')) {
+          const vid = document.createElement('video');
+          vid.crossOrigin = 'anonymous';
+          vid.autoplay = true;
+          vid.loop = true;
+          vid.src = URL.createObjectURL(blob);
+          this.column.add(new Icon(vid, 400, 400));
+        }
       });
-      this.root = new WLRoot(this.object, this.material,
-        new ScrollableViewportWidget(
-          new Column()
-          .add(this.images.slice(0, 16)),
-          400,
-          400
-        ),
-      );
-      this.root.unitsPerPixel = 0.000625;
+      this.images = this.column.children;
     }    
   },  
   onActivate() {
