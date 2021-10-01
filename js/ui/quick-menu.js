@@ -19,7 +19,9 @@ WL.registerComponent('quick-menu', {
 
     // Navigation button
     this.navigation.addClickFunction(() => {
-      console.log('Clicked navigation button');      
+      console.log('Clicked navigation button');
+      this.object.parent.getTranslationWorld(this.tempPos);
+      this.menu.show(this.tempPos, this.object.parent.rotationWorld, 'Navigation');
     });
     this.navigation.addHoverFunction(() => {
       this.navigation.object.getComponent('mesh').material.diffuseColor = [1, 0, 0, .8];
@@ -31,6 +33,8 @@ WL.registerComponent('quick-menu', {
     // Settings button
     this.settings.addClickFunction(() => {
       console.log('Clicked settings button');
+      this.object.parent.getTranslationWorld(this.tempPos);
+      this.menu.show(this.tempPos, this.object.parent.rotationWorld, 'Settings');
     });
     this.settings.addHoverFunction(() => {
       this.settings.object.getComponent('mesh').material.diffuseColor = [1, 0, 0, .8];
@@ -42,6 +46,8 @@ WL.registerComponent('quick-menu', {
     // Friends button
     this.friends.addClickFunction(() => {
       console.log('Clicked friends button');
+      this.object.parent.getTranslationWorld(this.tempPos);
+      this.menu.show(this.tempPos, this.object.parent.rotationWorld, 'Friends');
     });
     this.friends.addHoverFunction(() => {
       this.friends.object.getComponent('mesh').material.diffuseColor = [1, 0, 0, .8];
@@ -54,7 +60,7 @@ WL.registerComponent('quick-menu', {
     this.profile.addClickFunction(() => {
       console.log('Clicked profile button');
       this.object.parent.getTranslationWorld(this.tempPos);
-      this.menu.show(this.tempPos, this.object.parent.rotationWorld);
+      this.menu.show(this.tempPos, this.object.parent.rotationWorld, 'Profile');
     });
     this.profile.addHoverFunction(() => {
       this.profile.object.getComponent('mesh').material.diffuseColor = [1, 0, 0, .8];

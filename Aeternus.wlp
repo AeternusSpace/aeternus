@@ -3033,40 +3033,621 @@
                 {
                     "type": "menu",
                     "menu": {
-                        "imagePanel": "277"
-                    }
-                },
-                {
-                    "type": "image-panel",
-                    "image-panel": {
-                        "wallet": "217",
-                        "chain": "tez",
-                        "walletObject": "217",
-                        "material": "278"
+                        "imagePanel": "277",
+                        "material": "278",
+                        "imagePanelObject": "277"
                     }
                 },
                 {
                     "type": "collision"
+                },
+                {
+                    "type": "image-panel",
+                    "image-panel": {
+                        "chain": "tez",
+                        "walletObject": "217"
+                    }
                 }
             ],
             "transformation": [
-                0.25,
+                1.0,
                 0.0,
                 0.0,
                 0.0,
                 0.0,
-                0.2165062,
-                -0.125,
+                0.8660253,
+                -0.5000001,
                 0.0,
                 0.0,
                 0.0004999,
                 0.000866,
                 0.0,
                 0.0,
-                -10.0,
+                -9.999998,
                 -0.75,
                 1.0
             ]
+        },
+        "326": {
+            "link": {
+                "name": "Armature",
+                "file": "models\\dan.glb"
+            },
+            "transformation": [
+                -0.9999932,
+                -1.5099477934654716e-7,
+                0.0,
+                0.0,
+                -1.5099580252808665e-7,
+                1.0,
+                -1.5099580252808665e-7,
+                0.0,
+                0.0,
+                -1.5099477934654716e-7,
+                -0.9999932,
+                0.0,
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "two-joint-ik-solver",
+                    "two-joint-ik-solver": {
+                        "root": "347",
+                        "middle": "348",
+                        "end": "349",
+                        "target": "130"
+                    }
+                }
+            ]
+        },
+        "327": {
+            "link": {
+                "name": "EyeLeft<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "328": {
+            "link": {
+                "name": "EyeRight<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "329": {
+            "link": {
+                "name": "Wolf3D_Body<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "304"
+                    }
+                }
+            ]
+        },
+        "330": {
+            "link": {
+                "name": "Wolf3D_Glasses<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "331": {
+            "link": {
+                "name": "Wolf3D_Hair<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "332": {
+            "link": {
+                "name": "Wolf3D_Head<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "333": {
+            "link": {
+                "name": "Wolf3D_Outfit_Bottom<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "334": {
+            "link": {
+                "name": "Wolf3D_Outfit_Footwear<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "335": {
+            "link": {
+                "name": "Wolf3D_Outfit_Top<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "336": {
+            "link": {
+                "name": "Wolf3D_Teeth<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "337": {
+            "link": {
+                "name": "Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "326"
+        },
+        "338": {
+            "link": {
+                "name": "Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "337"
+        },
+        "339": {
+            "link": {
+                "name": "Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "338"
+        },
+        "340": {
+            "link": {
+                "name": "Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "339"
+        },
+        "341": {
+            "link": {
+                "name": "Neck<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "340"
+        },
+        "342": {
+            "link": {
+                "name": "Head<Neck<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "341"
+        },
+        "343": {
+            "link": {
+                "name": "HeadTop_End<Head<Neck<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "342"
+        },
+        "344": {
+            "link": {
+                "name": "LeftEye<Head<Neck<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "342"
+        },
+        "345": {
+            "link": {
+                "name": "RightEye<Head<Neck<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "342"
+        },
+        "346": {
+            "link": {
+                "name": "LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "340"
+        },
+        "347": {
+            "link": {
+                "name": "LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "346"
+        },
+        "348": {
+            "link": {
+                "name": "LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "347"
+        },
+        "349": {
+            "link": {
+                "name": "LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "348"
+        },
+        "350": {
+            "link": {
+                "name": "LeftHandThumb1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "349"
+        },
+        "351": {
+            "link": {
+                "name": "LeftHandThumb2<LeftHandThumb1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "350"
+        },
+        "352": {
+            "link": {
+                "name": "LeftHandThumb3<LeftHandThumb2<LeftHandThumb1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "351"
+        },
+        "353": {
+            "link": {
+                "name": "LeftHandThumb4<LeftHandThumb3<LeftHandThumb2<LeftHandThumb1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "352"
+        },
+        "354": {
+            "link": {
+                "name": "LeftHandIndex1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "349"
+        },
+        "355": {
+            "link": {
+                "name": "LeftHandIndex2<LeftHandIndex1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "354"
+        },
+        "356": {
+            "link": {
+                "name": "LeftHandIndex3<LeftHandIndex2<LeftHandIndex1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "355"
+        },
+        "357": {
+            "link": {
+                "name": "LeftHandIndex4<LeftHandIndex3<LeftHandIndex2<LeftHandIndex1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "356"
+        },
+        "358": {
+            "link": {
+                "name": "LeftHandMiddle1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "349"
+        },
+        "359": {
+            "link": {
+                "name": "LeftHandMiddle2<LeftHandMiddle1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "358"
+        },
+        "360": {
+            "link": {
+                "name": "LeftHandMiddle3<LeftHandMiddle2<LeftHandMiddle1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "359"
+        },
+        "361": {
+            "link": {
+                "name": "LeftHandMiddle4<LeftHandMiddle3<LeftHandMiddle2<LeftHandMiddle1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "360"
+        },
+        "362": {
+            "link": {
+                "name": "LeftHandRing1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "349"
+        },
+        "363": {
+            "link": {
+                "name": "LeftHandRing2<LeftHandRing1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "362"
+        },
+        "364": {
+            "link": {
+                "name": "LeftHandRing3<LeftHandRing2<LeftHandRing1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "363"
+        },
+        "365": {
+            "link": {
+                "name": "LeftHandRing4<LeftHandRing3<LeftHandRing2<LeftHandRing1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "364"
+        },
+        "366": {
+            "link": {
+                "name": "LeftHandPinky1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "349"
+        },
+        "367": {
+            "link": {
+                "name": "LeftHandPinky2<LeftHandPinky1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "366"
+        },
+        "368": {
+            "link": {
+                "name": "LeftHandPinky3<LeftHandPinky2<LeftHandPinky1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "367"
+        },
+        "369": {
+            "link": {
+                "name": "LeftHandPinky4<LeftHandPinky3<LeftHandPinky2<LeftHandPinky1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "368"
+        },
+        "370": {
+            "link": {
+                "name": "RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "340"
+        },
+        "371": {
+            "link": {
+                "name": "RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "370"
+        },
+        "372": {
+            "link": {
+                "name": "RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "371"
+        },
+        "373": {
+            "link": {
+                "name": "RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "372"
+        },
+        "374": {
+            "link": {
+                "name": "RightHandThumb1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "373"
+        },
+        "375": {
+            "link": {
+                "name": "RightHandThumb2<RightHandThumb1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "374"
+        },
+        "376": {
+            "link": {
+                "name": "RightHandThumb3<RightHandThumb2<RightHandThumb1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "375"
+        },
+        "377": {
+            "link": {
+                "name": "RightHandThumb4<RightHandThumb3<RightHandThumb2<RightHandThumb1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "376"
+        },
+        "378": {
+            "link": {
+                "name": "RightHandIndex1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "373"
+        },
+        "379": {
+            "link": {
+                "name": "RightHandIndex2<RightHandIndex1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "378"
+        },
+        "380": {
+            "link": {
+                "name": "RightHandIndex3<RightHandIndex2<RightHandIndex1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "379"
+        },
+        "381": {
+            "link": {
+                "name": "RightHandIndex4<RightHandIndex3<RightHandIndex2<RightHandIndex1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "380"
+        },
+        "382": {
+            "link": {
+                "name": "RightHandMiddle1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "373"
+        },
+        "383": {
+            "link": {
+                "name": "RightHandMiddle2<RightHandMiddle1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "382"
+        },
+        "384": {
+            "link": {
+                "name": "RightHandMiddle3<RightHandMiddle2<RightHandMiddle1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "383"
+        },
+        "385": {
+            "link": {
+                "name": "RightHandMiddle4<RightHandMiddle3<RightHandMiddle2<RightHandMiddle1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "384"
+        },
+        "386": {
+            "link": {
+                "name": "RightHandRing1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "373"
+        },
+        "387": {
+            "link": {
+                "name": "RightHandRing2<RightHandRing1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "386"
+        },
+        "388": {
+            "link": {
+                "name": "RightHandRing3<RightHandRing2<RightHandRing1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "387"
+        },
+        "389": {
+            "link": {
+                "name": "RightHandRing4<RightHandRing3<RightHandRing2<RightHandRing1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "388"
+        },
+        "390": {
+            "link": {
+                "name": "RightHandPinky1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "373"
+        },
+        "391": {
+            "link": {
+                "name": "RightHandPinky2<RightHandPinky1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "390"
+        },
+        "392": {
+            "link": {
+                "name": "RightHandPinky3<RightHandPinky2<RightHandPinky1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "391"
+        },
+        "393": {
+            "link": {
+                "name": "RightHandPinky4<RightHandPinky3<RightHandPinky2<RightHandPinky1<RightHand<RightForeArm<RightArm<RightShoulder<Spine2<Spine1<Spine<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "392"
+        },
+        "394": {
+            "link": {
+                "name": "LeftUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "337"
+        },
+        "395": {
+            "link": {
+                "name": "LeftLeg<LeftUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "394"
+        },
+        "396": {
+            "link": {
+                "name": "LeftFoot<LeftLeg<LeftUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "395"
+        },
+        "397": {
+            "link": {
+                "name": "LeftToeBase<LeftFoot<LeftLeg<LeftUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "396"
+        },
+        "398": {
+            "link": {
+                "name": "LeftToe_End<LeftToeBase<LeftFoot<LeftLeg<LeftUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "397"
+        },
+        "399": {
+            "link": {
+                "name": "RightUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "337"
+        },
+        "400": {
+            "link": {
+                "name": "RightLeg<RightUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "399"
+        },
+        "401": {
+            "link": {
+                "name": "RightFoot<RightLeg<RightUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "400"
+        },
+        "402": {
+            "link": {
+                "name": "RightToeBase<RightFoot<RightLeg<RightUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "401"
+        },
+        "403": {
+            "link": {
+                "name": "RightToe_End<RightToeBase<RightFoot<RightLeg<RightUpLeg<Hips<Armature",
+                "file": "models\\dan.glb"
+            },
+            "parent": "402"
         }
     },
     "meshes": {
@@ -3222,6 +3803,84 @@
                 "name": "floor",
                 "file": "meshes\\test_structure.glb"
             }
+        },
+        "312": {
+            "link": {
+                "name": "EyeLeft",
+                "file": "models\\dan.glb"
+            }
+        },
+        "313": {
+            "link": {
+                "name": "EyeLeft-uv1",
+                "file": "models\\dan.glb"
+            }
+        },
+        "314": {
+            "link": {
+                "name": "EyeRight",
+                "file": "models\\dan.glb"
+            }
+        },
+        "315": {
+            "link": {
+                "name": "EyeRight-uv1",
+                "file": "models\\dan.glb"
+            }
+        },
+        "316": {
+            "link": {
+                "name": "Wolf3D_Body",
+                "file": "models\\dan.glb"
+            }
+        },
+        "317": {
+            "link": {
+                "name": "Wolf3D_Glasses",
+                "file": "models\\dan.glb"
+            }
+        },
+        "318": {
+            "link": {
+                "name": "Wolf3D_Hair",
+                "file": "models\\dan.glb"
+            }
+        },
+        "319": {
+            "link": {
+                "name": "Wolf3D_Head",
+                "file": "models\\dan.glb"
+            }
+        },
+        "320": {
+            "link": {
+                "name": "Wolf3D_Head-uv1",
+                "file": "models\\dan.glb"
+            }
+        },
+        "321": {
+            "link": {
+                "name": "Wolf3D_Outfit_Bottom",
+                "file": "models\\dan.glb"
+            }
+        },
+        "322": {
+            "link": {
+                "name": "Wolf3D_Outfit_Footwear",
+                "file": "models\\dan.glb"
+            }
+        },
+        "323": {
+            "link": {
+                "name": "Wolf3D_Outfit_Top",
+                "file": "models\\dan.glb"
+            }
+        },
+        "324": {
+            "link": {
+                "name": "Wolf3D_Teeth",
+                "file": "models\\dan.glb"
+            }
         }
     },
     "textures": {
@@ -3278,6 +3937,78 @@
             "link": {
                 "name": "texture_2",
                 "file": "meshes\\test_structure.glb"
+            }
+        },
+        "291": {
+            "link": {
+                "name": "texture_0",
+                "file": "models\\dan.glb"
+            }
+        },
+        "292": {
+            "link": {
+                "name": "texture_1",
+                "file": "models\\dan.glb"
+            }
+        },
+        "293": {
+            "link": {
+                "name": "texture_2",
+                "file": "models\\dan.glb"
+            }
+        },
+        "294": {
+            "link": {
+                "name": "texture_3",
+                "file": "models\\dan.glb"
+            }
+        },
+        "295": {
+            "link": {
+                "name": "texture_4",
+                "file": "models\\dan.glb"
+            }
+        },
+        "296": {
+            "link": {
+                "name": "texture_5",
+                "file": "models\\dan.glb"
+            }
+        },
+        "297": {
+            "link": {
+                "name": "texture_6",
+                "file": "models\\dan.glb"
+            }
+        },
+        "298": {
+            "link": {
+                "name": "texture_7",
+                "file": "models\\dan.glb"
+            }
+        },
+        "299": {
+            "link": {
+                "name": "texture_8",
+                "file": "models\\dan.glb"
+            }
+        },
+        "300": {
+            "link": {
+                "name": "texture_9",
+                "file": "models\\dan.glb"
+            }
+        },
+        "301": {
+            "link": {
+                "name": "texture_10",
+                "file": "models\\dan.glb"
+            }
+        },
+        "302": {
+            "link": {
+                "name": "texture_11",
+                "file": "models\\dan.glb"
             }
         }
     },
@@ -3350,6 +4081,78 @@
             "link": {
                 "name": "c12",
                 "file": "meshes\\test_structure.glb"
+            }
+        },
+        "279": {
+            "link": {
+                "name": "1604398722-eye1",
+                "file": "models\\dan.glb"
+            }
+        },
+        "280": {
+            "link": {
+                "name": "body_texture",
+                "file": "models\\dan.glb"
+            }
+        },
+        "281": {
+            "link": {
+                "name": "glasses_id_17_D",
+                "file": "models\\dan.glb"
+            }
+        },
+        "282": {
+            "link": {
+                "name": "hair_23_nm",
+                "file": "models\\dan.glb"
+            }
+        },
+        "283": {
+            "link": {
+                "name": "hair_color",
+                "file": "models\\dan.glb"
+            }
+        },
+        "284": {
+            "link": {
+                "name": "face_texture",
+                "file": "models\\dan.glb"
+            }
+        },
+        "285": {
+            "link": {
+                "name": "casual_office_pants_N.jpg",
+                "file": "models\\dan.glb"
+            }
+        },
+        "286": {
+            "link": {
+                "name": "casual_office_pants_Color01.jpg",
+                "file": "models\\dan.glb"
+            }
+        },
+        "287": {
+            "link": {
+                "name": "Shoes_NormalDX.jpg",
+                "file": "models\\dan.glb"
+            }
+        },
+        "288": {
+            "link": {
+                "name": "Shoes_BaseColor.jpg",
+                "file": "models\\dan.glb"
+            }
+        },
+        "289": {
+            "link": {
+                "name": "Shirt_NormalDX.jpg",
+                "file": "models\\dan.glb"
+            }
+        },
+        "290": {
+            "link": {
+                "name": "Shirt_black_BaseColor",
+                "file": "models\\dan.glb"
             }
         }
     },
@@ -3638,7 +4441,14 @@
                     0.1058812,
                     1.0
                 ],
-                "alphaMaskThreshold": 0.5
+                "alphaMaskThreshold": 0.5,
+                "shininess": 0,
+                "specularColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
             },
             "pipeline": "254",
             "Flat": {
@@ -3756,6 +4566,89 @@
         "278": {
             "name": "ImagePanel",
             "pipeline": "38"
+        },
+        "303": {
+            "link": {
+                "name": "Wolf3D_Eye",
+                "file": "models\\dan.glb"
+            }
+        },
+        "304": {
+            "link": {
+                "name": "Wolf3D_Body",
+                "file": "models\\dan.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    0.5019608,
+                    0.5019608,
+                    0.5019608,
+                    1.0
+                ],
+                "emissiveColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "305": {
+            "link": {
+                "name": "Wolf3D_Glasses",
+                "file": "models\\dan.glb"
+            },
+            "pipeline": "254",
+            "Phong": {
+                "diffuseColor": [
+                    0.5019608,
+                    0.5019608,
+                    0.5019608,
+                    0.2392156
+                ]
+            }
+        },
+        "306": {
+            "link": {
+                "name": "Wolf3D_Hair",
+                "file": "models\\dan.glb"
+            }
+        },
+        "307": {
+            "link": {
+                "name": "Wolf3D_Skin",
+                "file": "models\\dan.glb"
+            }
+        },
+        "308": {
+            "link": {
+                "name": "Wolf3D_Outfit_Bottom",
+                "file": "models\\dan.glb"
+            }
+        },
+        "309": {
+            "link": {
+                "name": "Wolf3D_Shoes.001",
+                "file": "models\\dan.glb"
+            }
+        },
+        "310": {
+            "link": {
+                "name": "Wolf3D_Outfit_Top",
+                "file": "models\\dan.glb"
+            }
+        },
+        "311": {
+            "link": {
+                "name": "Wolf3D_Teeth",
+                "file": "models\\dan.glb"
+            }
         }
     },
     "shaders": {
@@ -3895,6 +4788,12 @@
                 "file": "models\\hand-right.glb"
             },
             "name": "HandRightSkin"
+        },
+        "325": {
+            "link": {
+                "name": "Armature",
+                "file": "models\\dan.glb"
+            }
         }
     },
     "pipelines": {
@@ -3953,18 +4852,19 @@
             },
             "name": "Transparent",
             "features": {
-                "ALPHA_MASKED": true,
+                "ALPHA_MASKED": false,
                 "TEXTURED": false,
                 "ALPHA": true,
                 "NORMAL_MAPPING": false,
-                "WITH_FOG": false
+                "WITH_FOG": false,
+                "VERTEX_COLORS": false
             },
             "doubleSided": true,
             "blending": true,
-            "blendDest": "one minus destination alpha",
+            "blendDest": "one minus source alpha",
             "blendEqRgb": "screen",
             "depthFunction": "less or equal",
-            "sampleAlphaToCoverage": true,
+            "sampleAlphaToCoverage": false,
             "blendEqAlpha": "add",
             "shader": "5"
         }
@@ -3977,6 +4877,7 @@
         "models/button.glb",
         "models/teleport-indicator.glb",
         "res/stars.jpg",
-        "meshes/test_structure.glb"
+        "meshes/test_structure.glb",
+        "models/dan.glb"
     ]
 }

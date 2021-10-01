@@ -10,7 +10,7 @@ import './speech/speech-target';
 import './speech/cube-test';
 import './ui/quick-menu';
 import './ui/menu';
-import './ui/image-panel';
+import './ui/profile-panel';
 import './ui/test-ui-component';
 import './ui/virtual-keyboard';
 import './wallet';
