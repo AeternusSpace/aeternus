@@ -11,7 +11,6 @@ WL.registerComponent('menu', {
     this.header = new Row({ canvasFill: 'darkblue' });
     this.header.add(this.title);
     this.header.add(this.hideButton);
-    this.nextFrameUnset = false;
 
     // Create content
     this.content = new Column();
@@ -53,8 +52,8 @@ WL.registerComponent('menu', {
     this.object.setTranslationWorld(position);
     let theta = Math.atan2(r[1], r[3]);
     let newRot = [0, Math.sin(theta), 0, Math.cos(theta)];
-    this.object.rotateObject(newRot);
-    this.object.translateObject([0, 1.5, -0.1]);
+    this.object.rotationWorld = newRot;
+    this.object.translateObject([0, -0.25, -0.75]);
 
     switch(panel) {
       case 'Profile':
