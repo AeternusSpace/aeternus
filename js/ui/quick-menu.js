@@ -14,7 +14,7 @@ WL.registerComponent('quick-menu', {
   start: function() {
     this.navigation = this.top.getComponent('cursor-target');
     this.settings = this.bottom.getComponent('cursor-target');
-    this.friends = this.left.getComponent('cursor-target');
+    this.users = this.left.getComponent('cursor-target');
     this.profile = this.right.getComponent('cursor-target');
     this.menu = this.menuObject.getComponent('menu');
 
@@ -42,16 +42,16 @@ WL.registerComponent('quick-menu', {
       this.settings.object.getComponent('mesh').material.diffuseColor = [0, 0, 0, .8];
     });
 
-    // Friends button
-    this.friends.addClickFunction(() => {
+    // Users button
+    this.users.addClickFunction(() => {
       this.head.getTranslationWorld(this.tempPos);
-      this.menu.show(this.tempPos, this.head.rotationWorld, 'Friends');
+      this.menu.show(this.tempPos, this.head.rotationWorld, 'users');
     });
-    this.friends.addHoverFunction(() => {
-      this.friends.object.getComponent('mesh').material.diffuseColor = [1, 0, 0, .8];
+    this.users.addHoverFunction(() => {
+      this.users.object.getComponent('mesh').material.diffuseColor = [1, 0, 0, .8];
     });
-    this.friends.addUnHoverFunction(() => {
-      this.friends.object.getComponent('mesh').material.diffuseColor = [0, 0, 0, .8];
+    this.users.addUnHoverFunction(() => {
+      this.users.object.getComponent('mesh').material.diffuseColor = [0, 0, 0, .8];
     });
 
     // Profile button

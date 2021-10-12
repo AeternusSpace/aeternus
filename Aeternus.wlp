@@ -2524,7 +2524,8 @@
                         "left": "248",
                         "right": "249",
                         "menu": "277",
-                        "menuObject": "277"
+                        "menuObject": "277",
+                        "head": "19"
                     }
                 }
             ]
@@ -2631,7 +2632,7 @@
             ]
         },
         "248": {
-            "name": "Friends",
+            "name": "Users",
             "parent": "244",
             "components": [
                 {
@@ -2785,13 +2786,13 @@
             ]
         },
         "252": {
-            "name": "FriendsText",
+            "name": "UsersText",
             "parent": "248",
             "components": [
                 {
                     "type": "text",
                     "text": {
-                        "text": "Friends"
+                        "text": "Users"
                     }
                 }
             ],
@@ -3074,21 +3075,21 @@
                 "file": "models\\dan.glb"
             },
             "transformation": [
-                -4.768335202243179e-7,
-                -1.5099496408765845e-7,
-                0.9999923,
+                -0.8000062,
+                1.2079769362571825e-7,
+                0.0003905,
                 0.0,
-                -1.5099588779321494e-7,
-                1.0,
-                1.5099605832347152e-7,
-                0.0,
-                -0.9999923,
-                -1.509946514488547e-7,
-                -4.768335202243179e-7,
-                0.0,
-                -1.2999999,
+                1.2079674149845233e-7,
+                0.8,
                 -0.0,
-                1.1579997,
+                0.0,
+                -0.0003905,
+                -0.0,
+                -0.8,
+                0.0,
+                -2.5000131,
+                -0.0,
+                1.1580065,
                 1.0
             ],
             "components": [
@@ -3098,11 +3099,20 @@
                         "root": "347",
                         "middle": "348",
                         "end": "349",
-                        "target": "130"
-                    },
-                    "active": false
+                        "target": "134"
+                    }
+                },
+                {
+                    "type": "two-joint-ik-solver",
+                    "two-joint-ik-solver": {
+                        "root": "371",
+                        "middle": "372",
+                        "end": "373",
+                        "target": "167"
+                    }
                 }
-            ]
+            ],
+            "name": "Dan"
         },
         "327": {
             "link": {
@@ -3270,147 +3280,465 @@
                 "name": "LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "348"
+            "parent": "348",
+            "components": [
+                {
+                    "type": "hand-tracking2",
+                    "hand-tracking2": {
+                        "handSkin": "325",
+                        "controllerToDeactivate": "130"
+                    }
+                }
+            ],
+            "name": "wrist"
         },
         "350": {
             "link": {
                 "name": "LeftHandThumb1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "349"
+            "parent": "349",
+            "name": "thumb-metacarpal"
         },
         "351": {
             "link": {
                 "name": "LeftHandThumb2<LeftHandThumb1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "350"
+            "parent": "349",
+            "transformation": [
+                0.8564054,
+                0.5163151,
+                0.0000351,
+                0.0,
+                -0.4549624,
+                0.7546206,
+                0.4727555,
+                0.0,
+                0.2440828,
+                -0.4049236,
+                0.8811941,
+                0.0,
+                -0.0544877,
+                0.0551078,
+                0.0197765,
+                0.9999998
+            ],
+            "name": "thumb-phalanx-proximal"
         },
         "352": {
             "link": {
                 "name": "LeftHandThumb3<LeftHandThumb2<LeftHandThumb1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "351"
+            "parent": "349",
+            "transformation": [
+                0.8564054,
+                0.5163159,
+                0.000031,
+                0.0,
+                -0.4918825,
+                0.8158732,
+                0.3039152,
+                0.0,
+                0.1569007,
+                -0.2603102,
+                0.9527028,
+                0.0,
+                -0.0695891,
+                0.0821872,
+                0.0364022,
+                0.9999998
+            ],
+            "name": "thumb-phalanx-distal"
         },
         "353": {
             "link": {
                 "name": "LeftHandThumb4<LeftHandThumb3<LeftHandThumb2<LeftHandThumb1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "352"
+            "parent": "349",
+            "transformation": [
+                0.856405,
+                0.5163155,
+                0.0000331,
+                0.0,
+                -0.4918875,
+                0.8158804,
+                0.3038976,
+                0.0,
+                0.1568885,
+                -0.2602943,
+                0.9527046,
+                0.0,
+                -0.0758996,
+                0.1063424,
+                0.044043,
+                0.9999998
+            ],
+            "name": "thumb-tip"
         },
         "354": {
             "link": {
                 "name": "LeftHandIndex1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "349"
+            "parent": "349",
+            "transformation": [
+                0.9811874,
+                0.1930561,
+                0.0000327,
+                0.0,
+                -0.1930097,
+                0.9809639,
+                0.0213196,
+                0.0,
+                0.004084,
+                -0.0209261,
+                0.9997721,
+                0.0,
+                -0.0380544,
+                0.1013585,
+                0.0008814,
+                0.9999998
+            ],
+            "name": "index-finger-phalanx-proximal"
         },
         "355": {
             "link": {
                 "name": "LeftHandIndex2<LeftHandIndex1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "354"
+            "parent": "349",
+            "transformation": [
+                0.9811882,
+                0.1930529,
+                0.0000386,
+                0.0,
+                -0.1780913,
+                0.9050834,
+                0.3860829,
+                0.0,
+                0.0745053,
+                -0.3788626,
+                0.9224705,
+                0.0,
+                -0.0439128,
+                0.1387745,
+                0.0016794,
+                0.9999998
+            ],
+            "name": "index-finger-phalanx-intermediate"
         },
         "356": {
             "link": {
                 "name": "LeftHandIndex3<LeftHandIndex2<LeftHandIndex1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "355"
+            "parent": "349",
+            "transformation": [
+                0.9811886,
+                0.1930533,
+                0.0000401,
+                0.0,
+                -0.1754684,
+                0.8917417,
+                0.4171015,
+                0.0,
+                0.0804919,
+                -0.4092948,
+                0.9088597,
+                0.0,
+                -0.0506486,
+                0.1693613,
+                0.0147979,
+                0.9999998
+            ],
+            "name": "index-finger-phalanx-distal"
         },
         "357": {
             "link": {
                 "name": "LeftHandIndex4<LeftHandIndex3<LeftHandIndex2<LeftHandIndex1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "356"
+            "parent": "349",
+            "transformation": [
+                0.9811884,
+                0.1930533,
+                0.0000381,
+                0.0,
+                -0.1754674,
+                0.8917405,
+                0.4171047,
+                0.0,
+                0.0804944,
+                -0.4092972,
+                0.9088577,
+                0.0,
+                -0.0565123,
+                0.1951124,
+                0.0269048,
+                0.9999998
+            ],
+            "name": "index-finger-tip"
         },
         "358": {
             "link": {
                 "name": "LeftHandMiddle1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "349"
+            "parent": "349",
+            "name": "middle-finger-phalanx-proximal"
         },
         "359": {
             "link": {
                 "name": "LeftHandMiddle2<LeftHandMiddle1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "358"
+            "parent": "349",
+            "transformation": [
+                0.997253,
+                0.0740838,
+                0.0000423,
+                0.0,
+                -0.0704779,
+                0.9485525,
+                0.3086443,
+                0.0,
+                0.0228262,
+                -0.3078216,
+                0.9511799,
+                0.0,
+                -0.0150513,
+                0.1480842,
+                0.0023417,
+                0.9999998
+            ],
+            "name": "middle-finger-phalanx-intermediate"
         },
         "360": {
             "link": {
                 "name": "LeftHandMiddle3<LeftHandMiddle2<LeftHandMiddle1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "359"
+            "parent": "349",
+            "transformation": [
+                0.9972531,
+                0.0740807,
+                0.0000405,
+                0.0,
+                -0.0659682,
+                0.8878097,
+                0.4554146,
+                0.0,
+                0.0337035,
+                -0.4542053,
+                0.8902816,
+                0.0,
+                -0.017419,
+                0.1786222,
+                0.0123052,
+                0.9999998
+            ],
+            "name": "middle-finger-phalanx-distal"
         },
         "361": {
             "link": {
                 "name": "LeftHandMiddle4<LeftHandMiddle3<LeftHandMiddle2<LeftHandMiddle1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "360"
+            "parent": "349",
+            "transformation": [
+                0.9972544,
+                0.074081,
+                0.0000402,
+                0.0,
+                -0.0659679,
+                0.8878059,
+                0.4554277,
+                0.0,
+                0.0337046,
+                -0.4542164,
+                0.8902738,
+                0.0,
+                -0.0200886,
+                0.2054011,
+                0.0260851,
+                0.9999998
+            ],
+            "name": "middle-finger-tip"
         },
         "362": {
             "link": {
                 "name": "LeftHandRing1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "349"
+            "parent": "349",
+            "name": "ring-finger-phalanx-proximal"
         },
         "363": {
             "link": {
                 "name": "LeftHandRing2<LeftHandRing1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "362"
+            "parent": "349",
+            "transformation": [
+                0.9983891,
+                -0.0567395,
+                0.0000418,
+                0.0,
+                0.0510092,
+                0.897895,
+                0.4371939,
+                0.0,
+                -0.0248455,
+                -0.436527,
+                0.8993711,
+                0.0,
+                0.0156681,
+                0.1399841,
+                0.0029337,
+                0.9999998
+            ],
+            "name": "ring-finger-phalanx-intermediate"
         },
         "364": {
             "link": {
                 "name": "LeftHandRing3<LeftHandRing2<LeftHandRing1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "363"
+            "parent": "349",
+            "transformation": [
+                0.9983896,
+                -0.0567394,
+                0.0000429,
+                0.0,
+                0.0521451,
+                0.9178606,
+                0.3934275,
+                0.0,
+                -0.0223636,
+                -0.3928216,
+                0.9193567,
+                0.0,
+                0.0169839,
+                0.1681754,
+                0.0166528,
+                0.9999998
+            ],
+            "name": "ring-finger-phalanx-distal"
         },
         "365": {
             "link": {
                 "name": "LeftHandRing4<LeftHandRing3<LeftHandRing2<LeftHandRing1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "364"
+            "parent": "349",
+            "transformation": [
+                0.9983894,
+                -0.0567393,
+                0.000043,
+                0.0,
+                0.052145,
+                0.9178619,
+                0.3934227,
+                0.0,
+                -0.0223635,
+                -0.392817,
+                0.9193587,
+                0.0,
+                0.0182521,
+                0.1929742,
+                0.0272676,
+                0.9999998
+            ],
+            "name": "ring-finger-tip"
         },
         "366": {
             "link": {
                 "name": "LeftHandPinky1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "349"
+            "parent": "349",
+            "name": "pinky-finger-phalanx-proximal"
         },
         "367": {
             "link": {
                 "name": "LeftHandPinky2<LeftHandPinky1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "366"
+            "parent": "349",
+            "transformation": [
+                0.9829175,
+                -0.1840535,
+                0.000041,
+                0.0,
+                0.1590949,
+                0.8497549,
+                0.5025412,
+                0.0,
+                -0.092537,
+                -0.4939984,
+                0.8645546,
+                0.0,
+                0.0421795,
+                0.1236374,
+                0.0066871,
+                0.9999998
+            ],
+            "name": "pinky-finger-phalanx-intermediate"
         },
         "368": {
             "link": {
                 "name": "LeftHandPinky3<LeftHandPinky2<LeftHandPinky1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "367"
+            "parent": "349",
+            "transformation": [
+                0.9829188,
+                -0.1840482,
+                0.0000309,
+                0.0,
+                0.1795661,
+                0.9590339,
+                0.2190381,
+                0.0,
+                -0.0403462,
+                -0.2153096,
+                0.9757274,
+                0.0,
+                0.0456523,
+                0.1426208,
+                0.017889,
+                0.9999998
+            ],
+            "name": "pinky-finger-phalanx-distal"
         },
         "369": {
             "link": {
                 "name": "LeftHandPinky4<LeftHandPinky3<LeftHandPinky2<LeftHandPinky1<LeftHand<LeftForeArm<LeftArm<LeftShoulder<Spine2<Spine1<Spine<Hips<Armature",
                 "file": "models\\dan.glb"
             },
-            "parent": "368"
+            "parent": "349",
+            "transformation": [
+                0.9829177,
+                -0.1840499,
+                0.0000356,
+                0.0,
+                0.1795683,
+                0.9590417,
+                0.2190198,
+                0.0,
+                -0.0403472,
+                -0.2152887,
+                0.9757267,
+                0.0,
+                0.0487589,
+                0.1587374,
+                0.021553,
+                0.9999998
+            ],
+            "name": "pinky-finger-tip"
         },
         "370": {
             "link": {
@@ -3649,6 +3977,444 @@
                 "file": "models\\dan.glb"
             },
             "parent": "402"
+        },
+        "423": {
+            "link": {
+                "name": "Armature",
+                "file": "models\\kuro.glb"
+            },
+            "transformation": [
+                0.0017451,
+                0.0,
+                -1.0000014,
+                0.0,
+                -0.0,
+                1.0000036,
+                0.0,
+                0.0,
+                1.0000011,
+                -0.0,
+                0.0017451,
+                0.0,
+                -5.6042585,
+                -0.0,
+                0.9526071,
+                1.0
+            ],
+            "name": "Kuro"
+        },
+        "424": {
+            "link": {
+                "name": "Body<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "423"
+        },
+        "425": {
+            "link": {
+                "name": "Face<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "423"
+        },
+        "426": {
+            "link": {
+                "name": "Hairs<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "423"
+        },
+        "427": {
+            "link": {
+                "name": "secondary<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "423"
+        },
+        "428": {
+            "link": {
+                "name": "Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "423"
+        },
+        "429": {
+            "link": {
+                "name": "J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "428"
+        },
+        "430": {
+            "link": {
+                "name": "J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "429"
+        },
+        "431": {
+            "link": {
+                "name": "J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "430"
+        },
+        "432": {
+            "link": {
+                "name": "J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "431"
+        },
+        "433": {
+            "link": {
+                "name": "J_Bip_C_Neck<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "432"
+        },
+        "434": {
+            "link": {
+                "name": "J_Bip_C_Head<J_Bip_C_Neck<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "433"
+        },
+        "435": {
+            "link": {
+                "name": "J_Adj_L_FaceEye<J_Bip_C_Head<J_Bip_C_Neck<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "434"
+        },
+        "436": {
+            "link": {
+                "name": "J_Adj_R_FaceEye<J_Bip_C_Head<J_Bip_C_Neck<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "434"
+        },
+        "437": {
+            "link": {
+                "name": "J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "432"
+        },
+        "438": {
+            "link": {
+                "name": "J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "437"
+        },
+        "439": {
+            "link": {
+                "name": "J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "438"
+        },
+        "440": {
+            "link": {
+                "name": "J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "439"
+        },
+        "441": {
+            "link": {
+                "name": "J_Bip_L_Index1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "440"
+        },
+        "442": {
+            "link": {
+                "name": "J_Bip_L_Index2<J_Bip_L_Index1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "441"
+        },
+        "443": {
+            "link": {
+                "name": "J_Bip_L_Index3<J_Bip_L_Index2<J_Bip_L_Index1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "442"
+        },
+        "444": {
+            "link": {
+                "name": "J_Bip_L_Little1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "440"
+        },
+        "445": {
+            "link": {
+                "name": "J_Bip_L_Little2<J_Bip_L_Little1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "444"
+        },
+        "446": {
+            "link": {
+                "name": "J_Bip_L_Little3<J_Bip_L_Little2<J_Bip_L_Little1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "445"
+        },
+        "447": {
+            "link": {
+                "name": "J_Bip_L_Middle1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "440"
+        },
+        "448": {
+            "link": {
+                "name": "J_Bip_L_Middle2<J_Bip_L_Middle1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "447"
+        },
+        "449": {
+            "link": {
+                "name": "J_Bip_L_Middle3<J_Bip_L_Middle2<J_Bip_L_Middle1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "448"
+        },
+        "450": {
+            "link": {
+                "name": "J_Bip_L_Ring1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "440"
+        },
+        "451": {
+            "link": {
+                "name": "J_Bip_L_Ring2<J_Bip_L_Ring1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "450"
+        },
+        "452": {
+            "link": {
+                "name": "J_Bip_L_Ring3<J_Bip_L_Ring2<J_Bip_L_Ring1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "451"
+        },
+        "453": {
+            "link": {
+                "name": "J_Bip_L_Thumb1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "440"
+        },
+        "454": {
+            "link": {
+                "name": "J_Bip_L_Thumb2<J_Bip_L_Thumb1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "453"
+        },
+        "455": {
+            "link": {
+                "name": "J_Bip_L_Thumb3<J_Bip_L_Thumb2<J_Bip_L_Thumb1<J_Bip_L_Hand<J_Bip_L_LowerArm<J_Bip_L_UpperArm<J_Bip_L_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "454"
+        },
+        "456": {
+            "link": {
+                "name": "J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "432"
+        },
+        "457": {
+            "link": {
+                "name": "J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "456"
+        },
+        "458": {
+            "link": {
+                "name": "J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "457"
+        },
+        "459": {
+            "link": {
+                "name": "J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "458"
+        },
+        "460": {
+            "link": {
+                "name": "J_Bip_R_Index1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "459"
+        },
+        "461": {
+            "link": {
+                "name": "J_Bip_R_Index2<J_Bip_R_Index1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "460"
+        },
+        "462": {
+            "link": {
+                "name": "J_Bip_R_Index3<J_Bip_R_Index2<J_Bip_R_Index1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "461"
+        },
+        "463": {
+            "link": {
+                "name": "J_Bip_R_Little1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "459"
+        },
+        "464": {
+            "link": {
+                "name": "J_Bip_R_Little2<J_Bip_R_Little1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "463"
+        },
+        "465": {
+            "link": {
+                "name": "J_Bip_R_Little3<J_Bip_R_Little2<J_Bip_R_Little1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "464"
+        },
+        "466": {
+            "link": {
+                "name": "J_Bip_R_Middle1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "459"
+        },
+        "467": {
+            "link": {
+                "name": "J_Bip_R_Middle2<J_Bip_R_Middle1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "466"
+        },
+        "468": {
+            "link": {
+                "name": "J_Bip_R_Middle3<J_Bip_R_Middle2<J_Bip_R_Middle1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "467"
+        },
+        "469": {
+            "link": {
+                "name": "J_Bip_R_Ring1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "459"
+        },
+        "470": {
+            "link": {
+                "name": "J_Bip_R_Ring2<J_Bip_R_Ring1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "469"
+        },
+        "471": {
+            "link": {
+                "name": "J_Bip_R_Ring3<J_Bip_R_Ring2<J_Bip_R_Ring1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "470"
+        },
+        "472": {
+            "link": {
+                "name": "J_Bip_R_Thumb1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "459"
+        },
+        "473": {
+            "link": {
+                "name": "J_Bip_R_Thumb2<J_Bip_R_Thumb1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "472"
+        },
+        "474": {
+            "link": {
+                "name": "J_Bip_R_Thumb3<J_Bip_R_Thumb2<J_Bip_R_Thumb1<J_Bip_R_Hand<J_Bip_R_LowerArm<J_Bip_R_UpperArm<J_Bip_R_Shoulder<J_Bip_C_UpperChest<J_Bip_C_Chest<J_Bip_C_Spine<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "473"
+        },
+        "475": {
+            "link": {
+                "name": "J_Bip_L_UpperLeg<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "429"
+        },
+        "476": {
+            "link": {
+                "name": "J_Bip_L_LowerLeg<J_Bip_L_UpperLeg<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "475"
+        },
+        "477": {
+            "link": {
+                "name": "J_Bip_L_Foot<J_Bip_L_LowerLeg<J_Bip_L_UpperLeg<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "476"
+        },
+        "478": {
+            "link": {
+                "name": "J_Bip_L_ToeBase<J_Bip_L_Foot<J_Bip_L_LowerLeg<J_Bip_L_UpperLeg<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "477"
+        },
+        "479": {
+            "link": {
+                "name": "J_Bip_R_UpperLeg<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "429"
+        },
+        "480": {
+            "link": {
+                "name": "J_Bip_R_LowerLeg<J_Bip_R_UpperLeg<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "479"
+        },
+        "481": {
+            "link": {
+                "name": "J_Bip_R_Foot<J_Bip_R_LowerLeg<J_Bip_R_UpperLeg<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "480"
+        },
+        "482": {
+            "link": {
+                "name": "J_Bip_R_ToeBase<J_Bip_R_Foot<J_Bip_R_LowerLeg<J_Bip_R_UpperLeg<J_Bip_C_Hips<Root<Armature",
+                "file": "models\\kuro.glb"
+            },
+            "parent": "481"
         }
     },
     "meshes": {
@@ -3881,6 +4647,60 @@
             "link": {
                 "name": "Wolf3D_Teeth",
                 "file": "models\\dan.glb"
+            }
+        },
+        "413": {
+            "link": {
+                "name": "Body.baked",
+                "file": "models\\kuro.glb"
+            }
+        },
+        "414": {
+            "link": {
+                "name": "Body.baked.0",
+                "file": "models\\kuro.glb"
+            }
+        },
+        "415": {
+            "link": {
+                "name": "Face(Clone).baked",
+                "file": "models\\kuro.glb"
+            }
+        },
+        "416": {
+            "link": {
+                "name": "Face(Clone).baked.0",
+                "file": "models\\kuro.glb"
+            }
+        },
+        "417": {
+            "link": {
+                "name": "Face(Clone).baked.1",
+                "file": "models\\kuro.glb"
+            }
+        },
+        "418": {
+            "link": {
+                "name": "Face(Clone).baked.2",
+                "file": "models\\kuro.glb"
+            }
+        },
+        "419": {
+            "link": {
+                "name": "Face(Clone).baked.3",
+                "file": "models\\kuro.glb"
+            }
+        },
+        "420": {
+            "link": {
+                "name": "Face(Clone).baked.4",
+                "file": "models\\kuro.glb"
+            }
+        },
+        "421": {
+            "link": {
+                "name": "Face(Clone).baked.5",
+                "file": "models\\kuro.glb"
             }
         }
     },
@@ -4650,6 +5470,132 @@
                 "name": "Wolf3D_Teeth",
                 "file": "models\\dan.glb"
             }
+        },
+        "404": {
+            "link": {
+                "name": "M00_000_00_Body_00_SKIN",
+                "file": "models\\kuro.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ]
+            }
+        },
+        "405": {
+            "link": {
+                "name": "M00_000_HairBack_00_HAIR",
+                "file": "models\\kuro.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ]
+            }
+        },
+        "406": {
+            "link": {
+                "name": "M00_000_00_FaceMouth_00_FACE (Instance)",
+                "file": "models\\kuro.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ]
+            }
+        },
+        "407": {
+            "link": {
+                "name": "M00_000_00_EyeIris_00_EYE (Instance)",
+                "file": "models\\kuro.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ]
+            }
+        },
+        "408": {
+            "link": {
+                "name": "M00_000_00_EyeHighlight_00_EYE (Instance)",
+                "file": "models\\kuro.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ]
+            }
+        },
+        "409": {
+            "link": {
+                "name": "M00_000_00_EyeWhite_00_EYE (Instance)",
+                "file": "models\\kuro.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ]
+            }
+        },
+        "410": {
+            "link": {
+                "name": "M00_000_00_Face_00_SKIN (Instance)",
+                "file": "models\\kuro.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ]
+            }
+        },
+        "411": {
+            "link": {
+                "name": "M00_000_00_Face_00_SKIN (Instance).001",
+                "file": "models\\kuro.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    9.999999974752428e-7,
+                    9.960784836948733e-7,
+                    9.960784836948733e-7,
+                    1.0
+                ]
+            }
+        },
+        "412": {
+            "link": {
+                "name": "M00_000_00_EyeExtra_01_EYE (Instance)",
+                "file": "models\\kuro.glb"
+            },
+            "Phong": {
+                "diffuseColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ]
+            }
         }
     },
     "shaders": {
@@ -4795,6 +5741,12 @@
                 "name": "Armature",
                 "file": "models\\dan.glb"
             }
+        },
+        "422": {
+            "link": {
+                "name": "Armature",
+                "file": "models\\kuro.glb"
+            }
         }
     },
     "pipelines": {
@@ -4879,6 +5831,7 @@
         "models/teleport-indicator.glb",
         "res/stars.jpg",
         "meshes/test_structure.glb",
-        "models/dan.glb"
+        "models/dan.glb",
+        "models/kuro.glb"
     ]
 }

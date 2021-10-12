@@ -1,4 +1,7 @@
 import '@wonderlandengine/components';
+import './avatars/hand-rig';
+import './avatars/hand-tracking2';
+import './avatars/ik-rig';
 import './input/gamepad';
 import './input/input-manager';
 import './input/controller';
